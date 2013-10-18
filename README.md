@@ -1,11 +1,11 @@
 # U.L.E.M.A. Upper Limb Evaluation in Motion Analysis
 
-U.L.E.M.A. is a MATLAB-based GUI tool for quickly processing motion capture data (C3D files) recorded by using Motion Capture devices.
+U.L.E.M.A. is a MATLAB-based GUI tool for quickly processing three-dimensional upper limb movements that have been recorded using Motion Capture devices (C3D files).
 
-It is bundled with Report Generator, a stand-alone Python-based and plugin-enabled GUI application for transforming custom-made templates into (editable) reports.
+It is bundled with the "Report Generator", a stand-alone Python-based and plugin-enabled GUI application for transforming custom-made templates into (editable) reports.
 
-The software was developed by the Catholic University of Leuven (Belgium) as result of collaboration among the following groups:
-- [CMAL-P](http://www.uzleuven.be/en/laboratory-for-clinical-movementanalysis/research) (Laboratory for Clinical Movement Analysis, UZ Pellenberg) 
+The software was developed by the Catholic University of Leuven (Belgium) through a collaboration between the following groups:
+- [CMAL-P](http://www.uzleuven.be/en/laboratory-for-clinical-movementanalysis/research) (Clinical Movement Analysis Laboratory, UZ Pellenberg) 
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
@@ -25,17 +25,17 @@ The most recent version of Report Generator is **1.1**.
 ---
 **Documentation:**
 
-Both U.L.E.M.A and Report Generator are corredated with documentation files. These can be found inside the folder *Doc* of each application. 
+Both U.L.E.M.A and Report Generator are documented with manuals and additional useful information. These documents can be found inside the folder *Doc* of each application. 
 
 ---
 
-Please **cite** the following articles from which the processing protocol was taken:
+Please **cite** the following articles when using the software; these articles provide a further description of the processing protocol:
 
 1. **Jaspers, E.**, Feys, H., Bruyninckx, H., Cutti, A.G., Harlaar, J., Molenaers, G., Desloovere, K. **The reliability of upper limb kinematics in children with hemiplegic cerebral palsy.** Gait Posture 2011; 33(4): 568-575 (citations : 6) (IF most recent : 1.969).
 
 2. **Jaspers, E.**, Feys, H., Bruyninckx, H., Klingels, K., Molenaers, G., Desloovere, K. **The Arm Profile Score: A new summary index to assess upper limb movement pathology.** Gait Posture 2011; 34(2): 227-233 (citations : 3) (IF most recent : 1.969).
 
-The following articles are also relevent:
+Other relevant articles:
 
 1. **Jaspers, E.**, Feys, H., Bruyninckx, H., Harlaar, J., Molenaers, G., Desloovere, K. **Upper limb kinematics: Development and reliability of a clinical protocol for children.** Gait Posture 2011; 33(2): 279-285 (citations : 8) (IF most recent : 1.969).
 
@@ -45,13 +45,13 @@ The following articles are also relevent:
 
 ---
 
-This application leverages on the following tools (already embedded in the application):
+This application builds upon following tools (already embedded in the application):
 
 1. [BodyMech](http://www.bodymech.nl/)
 2. [bt-k](http://code.google.com/p/b-tk/)
 3. [XML Toolbox for MATLAB](http://www.mathworks.com/matlabcentral/fileexchange/4278-xml-toolbox)
 
-We would like to thank again their authors here!
+We would like acknowledge the authors of these tools here! 
 
 ---
 
@@ -60,19 +60,19 @@ We would like to thank again their authors here!
 U.L.E.M.A.:
 
 1.0.6 (14/06/2013):
-- Raw data reading, previously part of the kinematics process, now is in a separate section. 
+- Raw data reading, previously part of the kinematics process, is now provided in a separate section. 
 - Documentation updated  
 
 1.0.5 (03/05/2013):
-- When exporting to C3D, the region of non-forced-to-0 angles is expanded of 1 frame, to avoid
+- When exporting to C3D, the region of non-forced-to-0 angles is expanded with 1 frame, to avoid
   bad visualization in Polygon
-- MAPs bar graphs have colors for a better indentifaction of overlapped IQR
-- MAPs title is split in 2 rows, to avoid clipping when too long. 
+- MAPs bar graphs have colors for a better indentifaction of overlapping IQR
+- MAPs title is split in 2 rows, to avoid clipping when too long
 
 1.0.4 (22/05/2013):
 - For the angle curves, data is forced to 0 before the first event and after the last event,
-  for every file, before exporting to C3D. This way, angle data between first and last event
-  is good since we agreed to have good markers data in that interval. Without bad marker data,
+  for every file, before exporting to C3D. This way, the angle data between the first and last event
+  is of good quality, since we agreed to have good marker data in that interval (check in Nexus). Without bad marker data,
   Polygon will never parse for bad data into the C3Ds and will always plot curves data.
 
 1.0.3 (30/04/2013):
@@ -86,7 +86,7 @@ U.L.E.M.A.:
 - Technical marker data is not written back anymore to C3D (for safety reasons)
 - "Proc. data saving" is added under Options -> Processing
 - Documentation updated with section 6.6
-- In ProtDB.mat added 2 new protocols used in Pellenberg Kliniek (Leuven, Belgium)
+- In ProtDB.mat 2 new protocols added that are used in CMAL-P (Leuven, Belgium)
 
 1.0.1 (11/10/2012):
 - First draft of documentation created
