@@ -6,7 +6,7 @@ U.L.E.M.A. is a MATLAB-based GUI tool for quickly processing three-dimensional u
 
 With U.L.E.M.A. you can:
 - Perform anatomical landmarks reconstruction and process joint kinematics by using the embedded engine [BodyMech](http://www.bodymech.nl/);
-- Segment the motion file data into *motion cycles* by a certain custom-made schema;
+- Segment the motion file data into *motion cycles* by a certain custom-made events schema;
 - Calculate spatio-temporal parameters for cycles;
 - Rank each cycles by using the RMSE technique (see articles below);
 - Calculate clinically-relevant parameters such as Arm Value Score (AVS) and Arm Profile Score (APS);
