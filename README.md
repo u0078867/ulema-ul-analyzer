@@ -14,7 +14,7 @@ With U.L.E.M.A. you can:
 - Export data in different formats (MAT, CSV, PDF, XML);
 - Create reference data MAT files from processed data; 
 - Save processed data MAT files for further late (re)processing;
-- Create / edit / delete different set of processing options (procotols);
+- Create / edit / delete different sets of processing options (procotols);
 
 It is bundled with the "Report Generator", a stand-alone Python-based and plugin-enabled GUI application for transforming custom-made templates into (editable) reports.
 
