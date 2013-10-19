@@ -2,6 +2,19 @@
 
 U.L.E.M.A. is a MATLAB-based GUI tool for quickly processing three-dimensional upper limb movements that have been recorded using Motion Capture devices (C3D files).
 
+![ULEMA](ULEMAScreenshot.png)
+
+With U.L.E.M.A. you can:
+- Perform anatomical landmarks reconstruction and process joint kinematics by using the embedded engine [BodyMech](http://www.bodymech.nl/);
+- Segment the motion file data into *motion cycles* by a certain custom-made schema;
+- Calculate spatio-temporal parameters for cycles;
+- Rank each cycles by using the RMSE technique (see articles below);
+- Calculate clinically-relevant parameters such as Arm Value Score (AVS) and Arm Profile Score (APS);
+- Add calibrated anatomical landmarks, kinematics and spatio-temporal parameters data back to the original C3D for [Polygon](http://www.vicon.com/Software/Polygon) reports;
+- Export data in different formats (MAT, CSV, PDF, XML);
+- Create reference data MAT files from processed data; 
+- Save processed data MAT files for further late (re)processing;
+
 It is bundled with the "Report Generator", a stand-alone Python-based and plugin-enabled GUI application for transforming custom-made templates into (editable) reports.
 
 The software was developed by the Catholic University of Leuven (Belgium) through a collaboration between the following groups:
