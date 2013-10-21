@@ -19,7 +19,7 @@ U.L.E.M.A. is provided together with the "Report Generator", a stand-alone Pytho
 
 The software was developed at the Catholic University of Leuven (Belgium) through a collaboration between the following groups:
 - [CMAL-P](http://www.uzleuven.be/en/laboratory-for-clinical-movementanalysis/research) (Clinical Movement Analysis Laboratory, University Hospital Pellenberg) 
-- [Dept. Mechanical Engineerin](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation, KU Leuven)
+- [Dept. Mechanical Engineering](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation, KU Leuven)
 - [Dept. Rehabilitation Sciences](hhttps://gbiomed.kuleuven.be/english/research/50000743/nrrg1/nrrg.htm) (Neuromotor Rehabilitation Research Group, KU Leuven)
 
 The most recent version of U.L.E.M.A. is **1.0.6**.
