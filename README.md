@@ -69,9 +69,20 @@ We would like acknowledge the authors of these tools here!
 
 ---
 
+**What's coming**
+
+U.L.E.M.A.:
+
+1.0.7 (2014):
+- Possibility to read a single calibration file where markers are placed directly on anatomical landmarks
+- Possibility to perform functional axis calibration
+
 **What's new**
 
 U.L.E.M.A.:
+
+1.0.6 (25/11/2013):
+- Added developers guide
 
 1.0.6 (14/06/2013):
 - Raw data reading, previously part of the kinematics process, is now provided in a separate section. 
