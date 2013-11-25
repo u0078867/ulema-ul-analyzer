@@ -32,7 +32,7 @@ function varargout = mainGUI(varargin)
 
 % Edit the above text to modify the response to help mainGUI
 
-% Last Modified by GUIDE v2.5 05-Jun-2013 09:36:47
+% Last Modified by GUIDE v2.5 18-Nov-2013 16:04:15
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -1912,3 +1912,10 @@ function ProcDataSavingSafeMerSSSMenu_Callback(hObject, eventdata, handles)
 
 handles = menuMutualSel(handles, handles.procDataSavingList, get(hObject,'Tag'));
 guidata(hObject, handles);
+
+
+% --- Executes during object creation, after setting all properties.
+function kineOptsButt_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to kineOptsButt (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
