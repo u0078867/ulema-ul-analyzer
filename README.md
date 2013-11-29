@@ -78,6 +78,11 @@ U.L.E.M.A.:
 - Possibility to perform functional axis calibration
 - Patch nutshell tutorial with suggested fixes
 
+Report generator:
+
+1.2 (January 2014 expected): 
+- Add coordination plots for reports
+
 **What's new**
 
 U.L.E.M.A.:
@@ -128,9 +133,6 @@ U.L.E.M.A.:
 
 
 Report generator:
-
-1.2 (January 2014 expected): 
-- Add coordination plots for reports
 
 1.1 (05/10/2012): 
 - Added "Descriptors Editor" tool under main window -> "Tools" -> "Descriptors Editor..."
