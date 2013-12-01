@@ -69,6 +69,13 @@ We would like acknowledge the authors of these tools here!
 
 ---
 
+**For any bug / issue / improvement**:
+- please log-in into GitHub, or create your new account
+- create a new issue by clicking on Issues --> New Issue
+- avoid any direct mail to the contributors, so that all the knowledge can be shared
+
+---
+
 **What's coming**
 
 U.L.E.M.A.:
