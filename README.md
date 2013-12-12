@@ -82,15 +82,15 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
-1.0.7 (January 2014 expected):
-- Possibility to read a single calibration file where markers are placed directly on anatomical landmarks
-- Possibility to perform functional axis calibration
-- Patch nutshell tutorial with suggested fixes
+1.1.0 (January 2014 expected):
+- Possibility to read a single calibration file where markers are placed directly on anatomical landmarks ... DONE
+- Possibility to perform functional axis calibration ... IN PROGRESS
+- Patch nutshell tutorial with suggested fixes ... TO START
 
 Report generator:
 
 1.2 (January 2014 expected): 
-- Add coordination plots for reports
+- Add coordination plots for reports ... TO START
 
 **What's new**
 
