@@ -3,6 +3,7 @@
 U.L.E.M.A. is a MATLAB-based GUI tool for quickly processing three-dimensional upper limb movements that have been recorded using Motion Capture devices (C3D files).
 
 ![ULEMA](ULEMAScreenshot.png)
+![Report generation](ReportGenerationScreenshot.png)
 
 With U.L.E.M.A. you can:
 - Perform anatomical landmarks reconstruction and process joint kinematics by using the embedded engine [BodyMech](http://www.bodymech.nl/);
