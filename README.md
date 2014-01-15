@@ -102,6 +102,7 @@ U.L.E.M.A.:
 - Possibility to express a custom lab reference frame (for absolute angles) with respect to the real lab reference frame
 - Upgraded nutshell manual
 - Upgraded extended manual
+- Minor bugs fixed
 
 1.0.6 (25/11/2013):
 - Added developers guide
