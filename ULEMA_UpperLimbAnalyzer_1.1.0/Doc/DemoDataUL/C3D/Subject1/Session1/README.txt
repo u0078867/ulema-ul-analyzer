@@ -1,0 +1,1 @@
+Since a single calibration file with markers on the anatomical landmarks was not available, calMARKERS.c3d is just a copy of a dynamic file containing reconstructed anatomical landmarks.

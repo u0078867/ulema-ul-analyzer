@@ -66,6 +66,7 @@ This application builds upon following tools (already embedded in the applicatio
 1. [BodyMech](http://www.bodymech.nl/)
 2. [bt-k](http://code.google.com/p/b-tk/)
 3. [XML Toolbox for MATLAB](http://www.mathworks.com/matlabcentral/fileexchange/4278-xml-toolbox)
+4. Useful functions provided by Prof. Dr. Alberto Leardini ([IOR](http://www.ior.it/en/laboratori/lab-analisi-movimento/movement-analysis-laboratory)) and Dr. Andrea G. Cutti ([INAIL](http://www.inail-ricerca.it/))
 
 We would like acknowledge the authors of these tools here! 
 
@@ -78,23 +79,29 @@ We would like acknowledge the authors of these tools here!
 
 ---
 
-**What's coming**
+**What's next**
 
 U.L.E.M.A.:
 
-1.1.0 (January 2014 expected):
-- Possibility to read a single calibration file where markers are placed directly on anatomical landmarks ... DONE
-- Possibility to perform functional axis calibration ... IN PROGRESS
-- Patch nutshell tutorial with suggested fixes ... TO START
+---
 
 Report generator:
 
-1.2 (January 2014 expected): 
-- Add coordination plots for reports ... TO START
+1.2 (if requested by several users):
+- Add coordination plots for reports
 
 **What's new**
 
 U.L.E.M.A.:
+
+1.1.0 (13/01/2014)
+- Possibility to read a single calibration file where markers are placed directly on anatomical landmarks
+- Improved gimbal lock correction for angles
+- Possibility to perform functional axis calibration
+- Possibility to export (to C3D) virtual indicator markers for visual quality check of functional axis reconstruction
+- Possibility to express a custom lab reference frame (for absolute angles) with respect to the real lab reference frame
+- Upgraded nutshell manual
+- Upgraded extended manual
 
 1.0.6 (25/11/2013):
 - Added developers guide
