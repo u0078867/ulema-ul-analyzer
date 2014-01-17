@@ -106,7 +106,7 @@ elseif strcmp(mode,'automatic')
     Nsegments=length(BODY.SEGMENT);
     % analyse the max number of markers
     if Nsegments~=0,
-        AllAvailableMarkers = zeros(1,BODY.SEGMENT(1).Cluster.AvailableMarkers);
+        AllAvailableMarkers = zeros(1,size(BODY.SEGMENT(1).Cluster.AvailableMarkers,2));
         for iSegment=1:Nsegments,    % for all bodysegments
 
             TimeGain=BODY.SEGMENT(iSegment).Cluster.TimeGain;

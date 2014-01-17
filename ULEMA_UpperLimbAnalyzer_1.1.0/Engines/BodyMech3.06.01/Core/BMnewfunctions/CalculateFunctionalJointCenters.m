@@ -94,7 +94,7 @@ for i = 1 : size(DJCList,1)
     % Create a cluster reference frame with an origin
     [R,O] = CreateFrameFromCluster(BODY.SEGMENT(IndSeg1).Cluster.KinematicsMarkers);
     % Express the markers of the distal segment in the frame of the distal one
-    nMarkers = size(BODY.SEGMENT(IndSeg2).Cluster.KinematicsMarkers);
+    [dummy1,nMarkers,dummy2]= size(BODY.SEGMENT(IndSeg2).Cluster.KinematicsMarkers);
     MarkersCell = cell(1,nMarkers);
     for j = 1 : nMarkers
         % --- this loop could be performed in a vectorized way

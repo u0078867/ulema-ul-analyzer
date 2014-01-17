@@ -83,12 +83,12 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
----
-
 Report generator:
 
 1.2 (if requested by several users):
 - Add coordination plots for reports
+
+---
 
 **What's new**
 
@@ -103,6 +103,7 @@ U.L.E.M.A.:
 - Upgraded nutshell manual
 - Upgraded extended manual
 - Minor bugs fixed
+- A few BodyMech functions adjusted to be working in MATLAB R2013
 
 1.0.6 (25/11/2013):
 - Added developers guide
