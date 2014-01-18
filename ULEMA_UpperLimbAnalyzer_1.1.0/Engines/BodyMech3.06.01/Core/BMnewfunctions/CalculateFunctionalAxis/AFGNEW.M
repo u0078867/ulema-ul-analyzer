@@ -1,4 +1,4 @@
-function[odata]=afgnew(idata,v);
+function[odata]=afgnew(idata,v)
 % function AFGNEW; 
 % calculates numerical derivative for position- and velocity data
 % constants chosen for best frequency response around 50-100Hz sample frequency

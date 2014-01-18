@@ -1,4 +1,4 @@
-function[nopt,sopt,deff,chi] = woliha(n,s)
+function[nopt,sopt,deff,chi] = wolihapa(n,s)
 % WOLIHAPAR return the relevant parameters of the InstantaneousHelicalAxis
 %           [NOPT,SOPT,DEFF,CHI] = WOLIHAPAR(N,S) returns the estime of the mean
 %           helical axis and the pivot point of the instantaneous IHA's provided
