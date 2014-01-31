@@ -94,7 +94,11 @@ Report generator:
 
 U.L.E.M.A.:
 
-1.1.0 (13/01/2014)
+1.1.1 (31/01/2014):
+- Solved issue #11 (Geometrical GH estimation)
+- Fixed bug happening during exportation to C3D and when no marker related spatio-temporal parameters were calculated 
+
+1.1.0 (13/01/2014):
 - Possibility to read a single calibration file where markers are placed directly on anatomical landmarks
 - Improved gimbal lock correction for angles
 - Possibility to perform functional axis calibration
