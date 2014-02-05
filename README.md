@@ -24,7 +24,7 @@ The software was developed by the Catholic University of Leuven (Belgium) throug
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.1.0**.
+The most recent version of U.L.E.M.A. is **1.1.2**.
 
 The most recent version of Report Generator is **1.1**.
 
