@@ -94,6 +94,9 @@ Report generator:
 
 U.L.E.M.A.:
 
+1.1.2 (05/02/2014):
+- Solved issue #12 (added BTK bindings for Windows 7 32-bit)
+
 1.1.1 (31/01/2014):
 - Solved issue #11 (Geometrical GH estimation)
 - Fixed bug happening during exportation to C3D and when no marker related spatio-temporal parameters were calculated 

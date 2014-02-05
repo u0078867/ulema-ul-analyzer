@@ -78,12 +78,24 @@ waitbar(1/4,h,'Selecting correct BTK folder...');
 % Descard the BTK subfolders that aren't relative to the current operating system
 osInfo = computer;
 fprintf('\n\nOperative system: %s\n\n', osInfo);
+osVersion = char(java.lang.System.getProperty('os.version'));
+fprintf('Operative system version: %s\n\n', osVersion);
 switch osInfo
     case 'PCWIN64'
         handles.currPath{1} = rmTreeFromPath(handles.origPath, 'BTK_WinXP_32bit');
+        handles.currPath{1} = rmTreeFromPath(handles.currPath{1}, 'BTK_Win7_32bit');
         path(handles.currPath{1});
     case 'PCWIN'
         handles.currPath{1} = rmTreeFromPath(handles.origPath, 'BTK_Win7_64bit');
+        if osVersion(1) == '6'  % Windows 7
+            handles.currPath{1} = rmTreeFromPath(handles.currPath{1}, 'BTK_WinXP_32bit');
+        elseif osVersion(1) == '5' % Windows XP
+            handles.currPath{1} = rmTreeFromPath(handles.currPath{1}, 'BTK_Win7_32bit');
+        else
+            uiwait(warndlg('No BTK package detected for current operative system! It will be impossible to write data back to C3D.'));
+            set(handles.ExportC3DSSMenu,'Enable','off');
+            handles.currPath{1} = [];            
+        end
         path(handles.currPath{1});
     otherwise
         uiwait(warndlg('No BTK package detected for current operative system! It will be impossible to write data back to C3D.'));
