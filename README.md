@@ -83,9 +83,13 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
+1.1.3 (by the end of March):
+- In Kinematics options, when some markers are not visible in the single file calibrations, try 
+to search for the the corresponding separated calibration files anyway.
+
 Report generator:
 
-1.2 (if requested by several users):
+1.2 (by end of March, delayed):
 - Add coordination plots for reports
 
 ---
