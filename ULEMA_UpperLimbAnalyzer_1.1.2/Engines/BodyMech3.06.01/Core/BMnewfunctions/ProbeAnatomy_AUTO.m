@@ -71,7 +71,7 @@ for iSegment=1:length(BODY.SEGMENT),                              % for all BODY
         if ~isempty(BODY.SEGMENT(iSegment).AnatomicalLandmark(iLandmark).Name),
             cond = (useSepCalFiles || (useSingleCalFile && iLandmark == 1));    % condition for readinf c3d file
             name = BODY.SEGMENT(iSegment).AnatomicalLandmark(iLandmark).Name;
-
+            
             BODY.SEGMENT(iSegment).AnatomicalLandmark(iLandmark).ProbingPose=[];             % clear all previous anatomical calibrations
             if useSepCalFiles
                 datafile = [calPrefix, BODY.SEGMENT(iSegment).AnatomicalLandmark(iLandmark).Name,'.c3d'];
