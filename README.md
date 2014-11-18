@@ -83,15 +83,12 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
-1.1.3 (by the end of March):
-- In Kinematics options, when some markers are not visible in the single file calibrations, try 
-to search for the the corresponding separated calibration files anyway.
-- Camera rate is now read from the parameter RATE in the group POINT (wheras before it was read from TRIAL/CAMERA_RATE).
-This seems like a more standard way to get this value (it works for Qualysis and Vicon).
+1.1.3:
+- To decide
 
 Report generator:
 
-1.2 (by end of March, delayed):
+1.2:
 - Add coordination plots for reports
 
 ---
@@ -102,6 +99,8 @@ U.L.E.M.A.:
 
 1.1.3 (13/11/2014):
 - Solved issue #20 (Issue in marker deleting when filtering for unwanted joints)
+- Camera rate is now read from the parameter RATE in the group POINT (wheras before it was read from TRIAL/CAMERA_RATE).
+This seems like a more standard way to get this value (it works for Qualysis and Vicon).
 
 1.1.2 (05/02/2014):
 - Solved issue #12 (added BTK bindings for Windows 7 32-bit)
