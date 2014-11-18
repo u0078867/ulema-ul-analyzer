@@ -69,7 +69,7 @@ for i = 1 : length(trToUseDB.subjects)  % cycle for every subject
                         datapath = recoverPath(recoveryPath, 'c3d', 'tree', 'session', subject.name, subject.sessions(j).name, []);
                         datafile = protInfo.staticFile;
                         [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(datafile,datapath);
-                        freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');
+                        freq = getparam(ParameterGroup, 'POINT', 'RATE');
                         fprintf('\n     Tr: Static data for file %s loaded (from file) for clusters definition (recovery path used)...', datafile);
                     else
                         MARKER_DATA = getMarkersDataFromStruct(subject.sessions(j).trials(k).static.data.points,BODY.CONTEXT.MarkerLabels);
@@ -83,14 +83,14 @@ for i = 1 : length(trToUseDB.subjects)  % cycle for every subject
                     datapath = recoverPath(recoveryPath, 'c3d', 'tree', 'session', subject.name, subject.sessions(j).name, []);
                     datafile = protInfo.staticFile;
                     [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(datafile,datapath);
-                    freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');  
+                    freq = getparam(ParameterGroup, 'POINT', 'RATE');  
                     fprintf('\n     Tr: Static data for file %s loaded (from file) for clusters definition...', datafile);
                 end
             else
                 datapath = recoverPath(recoveryPath, 'c3d', 'tree', 'session', subject.name, subject.sessions(j).name, []);
                 datafile = protInfo.staticFile;
                 [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(datafile,datapath);
-                freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');
+                freq = getparam(ParameterGroup, 'POINT', 'RATE');
                 fprintf('\n     Tr: Static data for file %s loaded (from file) for clusters definition (recovery path used)...', datafile);
             end
             subject.sessions(j).trials(k).static.name = datafile;
@@ -174,7 +174,7 @@ for i = 1 : length(trToUseDB.subjects)  % cycle for every subject
                             datapath = recoverPath(recoveryPath, 'c3d', 'tree', 'session', subject.name, subject.sessions(j).name, []);
                             datafile = protInfo.absAngRefPosFile;
                             [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(datafile,datapath);
-                            freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');
+                            freq = getparam(ParameterGroup, 'POINT', 'RATE');
                             fprintf('\n     Tr: Static data for file %s loaded (from file) for reference posture (recovery path used)...', datafile);
                         else
                             MARKER_DATA = getMarkersDataFromStruct(subject.sessions(j).trials(k).staticRef.data.points,BODY.CONTEXT.MarkerLabels);
@@ -189,14 +189,14 @@ for i = 1 : length(trToUseDB.subjects)  % cycle for every subject
                         datapath = recoverPath(recoveryPath, 'c3d', 'tree', 'session', subject.name, subject.sessions(j).name, []);
                         datafile = protInfo.absAngRefPosFile;
                         [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(datafile,datapath);
-                        freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');  
+                        freq = getparam(ParameterGroup, 'POINT', 'RATE');  
                         fprintf('\n     Tr: Static data for file %s loaded (from file) for reference posture...', datafile);
                     end
                 else
                     datapath = recoverPath(recoveryPath, 'c3d', 'tree', 'session', subject.name, subject.sessions(j).name, []);
                     datafile = protInfo.absAngRefPosFile;
                     [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(datafile,datapath);
-                    freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');
+                    freq = getparam(ParameterGroup, 'POINT', 'RATE');
                     fprintf('\n     Tr: Static data for file %s loaded (from file) for reference posture...', datafile);
                 end
                 subject.sessions(j).trials(k).staticRef.name = datafile;

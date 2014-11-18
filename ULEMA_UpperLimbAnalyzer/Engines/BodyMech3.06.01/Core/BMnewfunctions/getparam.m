@@ -11,5 +11,6 @@ tmp = [ParameterGroup(groupid).Parameter.name];
 paramid = strcmp(tmp,paramstring);
 varargout = {ParameterGroup(groupid).Parameter(paramid).data};
 if isempty(varargout)
-    varargout{1} = {};  % in case of there is no param matching
+    error('Cannot find parameter %s/%s', groupstring, paramstring);
+    %varargout{1} = {};  % in case of there is no param matching
 end

@@ -8,9 +8,9 @@
 % GNU General Public License for more details.
 %
 
-function AnatCalc_UL_6Segm_Left_Func
+function AnatCalc_UL_6Segm_Right_Func
 
-% ANATCALC_UL_5SEGM_LEFT [ BodyMech 3.06.01 ]: anatomical calculation file
+% ANATCALC_UL_5SEGM_RIGHT [ BodyMech 3.06.01 ]: anatomical calculation file
 % INPUT
 %    Input : none
 % PROCESS
@@ -25,7 +25,7 @@ function AnatCalc_UL_6Segm_Left_Func
 % AUTHOR(S) AND VERSION-HISTORY
 % $ Ver 1.0 Creation (Jaap Harlaar, VUmc, Amsterdam, October 2000)
 % $ Ver 3.06.01 VUmc, Amsterdam, May 2006 (Jaap Harlaar en Caroline Doorenbosch) 
-% $ Ver 3.06.02 FaBeR, Leuven, December 2007 (Ellen Jaspers)
+% $ Ver 3.06.02 FaBeR, Leuven, June 2007 (Ellen Jaspers)
 
 % Copyright 2000-2006 This program is free software under the terms of the
 % GNU General Public License (www.gnu.org) 
@@ -38,21 +38,21 @@ BodyMechFuncHeader
 % ####################
 % ## INITIALIZATION ##
 % ####################
-% 
+
 % if nSamples==0, return, end
-% 
+
 % for iSeg=1:nSeg
 %     nAL=length(BODY.SEGMENT(iSeg).AnatomicalLandmark); % Number of Anatomical Landmarks
-%     BODY.SEGMENT(iSeg).StickFigure=[];
+%     %BODY.SEGMENT(iSeg).StickFigure=[]; (FC 13/08/2007 uitgecommentarieerd)
 %     for iAL=1:nAL
 %         BODY.SEGMENT(iSeg).AnatomicalLandmark(iAL).Kinematics=[];
 %     end
 % end
-% 
-% % ####################################################### 
-% % ## CALCULATE GLOBAL COORDINATES ANATOMICAL LANDMARKS ##
-% % #######################################################
-% 
+
+% ####################################################### 
+% ## CALCULATE GLOBAL COORDINATES ANATOMICAL LANDMARKS ##
+% #######################################################
+
 % for t=1:nSamples % t = iSample
 %     for iSeg=1:nSeg
 %         nAL=length(BODY.SEGMENT(iSeg).AnatomicalLandmark);
@@ -66,25 +66,26 @@ BodyMechFuncHeader
 %     end  
  
 % #####################################################################
-% ## REDEFINE ANATOMICAL LANDMARKS FOR CLARITY (global coordinates) ##
+% ## REDEFINE ANATOMICAL LANDMARKS FOR CLEARITY (global coordinates) ##
 % #####################################################################
 
-%left humerus
-i1 = FindSegmentIndex('Left_Humerus');
+%right humerus
+i1 = FindSegmentIndex('Right_Humerus');
 if ~isempty(i1)
     EL=BODY.SEGMENT(i1).AnatomicalLandmark(1).Kinematics;  % lateral epicondyl
     EM=BODY.SEGMENT(i1).AnatomicalLandmark(2).Kinematics;  % medial epicondyl
+    %GHr=BODY.SEGMENT(i).AnatomicalLandmark(2).Kinematics; % GH rotation centre
 end
 
-%left forearm
-i2 = FindSegmentIndex('Left_Forearm');
+%right forearm
+i2 = FindSegmentIndex('Right_Forearm');
 if ~isempty(i2)
     RS=BODY.SEGMENT(i2).AnatomicalLandmark(1).Kinematics;  % radial styloid
     US=BODY.SEGMENT(i2).AnatomicalLandmark(2).Kinematics;  % ulnar styloid
 end
 
-%left hand
-i3 = FindSegmentIndex('Left_Hand');
+%right hand
+i3 = FindSegmentIndex('Right_Hand');
 if ~isempty(i3)
     MC3=BODY.SEGMENT(i3).AnatomicalLandmark(1).Kinematics;     % proc styl metacarpal 3
     MCP2=BODY.SEGMENT(i3).AnatomicalLandmark(2).Kinematics;    % metacarpo-phalangeal 2
@@ -92,8 +93,8 @@ if ~isempty(i3)
     MCP5=BODY.SEGMENT(i3).AnatomicalLandmark(4).Kinematics;    % metacarpo-phalangeal 5
 end
 
-%left acromion
-i4 = FindSegmentIndex('Left_Acromion');
+%right acromion
+i4 = FindSegmentIndex('Right_Acromion');
 if ~isempty(i4)
     AA=BODY.SEGMENT(i4).AnatomicalLandmark(1).Kinematics;  % ang acromialis
     AI=BODY.SEGMENT(i4).AnatomicalLandmark(2).Kinematics;  % ang inferior
@@ -102,8 +103,8 @@ if ~isempty(i4)
     AC=BODY.SEGMENT(i4).AnatomicalLandmark(5).Kinematics;  % art acromiocalvicularis
 end
 
-%left sternum
-i5 = FindSegmentIndex('Left_Sternum');
+%right sternum
+i5 = FindSegmentIndex('Right_Sternum');
 if ~isempty(i5)
     C7=BODY.SEGMENT(i5).AnatomicalLandmark(1).Kinematics;  % proc spin C7
     T8=BODY.SEGMENT(i5).AnatomicalLandmark(2).Kinematics;  % proc spin T8
@@ -111,21 +112,23 @@ if ~isempty(i5)
     PX=BODY.SEGMENT(i5).AnatomicalLandmark(4).Kinematics;  % proc xypho�deus
 end
 
-%left hum1 (first coordinate system according to ISB)
-i6 = FindSegmentIndex('Left_Hum1');
+%right humerus 1 (for H1 definition according to ISB)
+i6 = FindSegmentIndex('Right_Hum1');
 if ~isempty(i6) || ~isempty(i1)
     EL=BODY.SEGMENT(i6).AnatomicalLandmark(1).Kinematics;  % lateral epicondyl
     EM=BODY.SEGMENT(i6).AnatomicalLandmark(2).Kinematics;  % medial epicondyl
 end
 
-iLGH = strcmp({BODY.SEGMENT(i4).AnatomicalLandmark.Name},'LGH');
-if sum(iLGH) > 0
-    GHr = BODY.SEGMENT(i4).AnatomicalLandmark(iLGH).Kinematics;
+iRGH = strcmp({BODY.SEGMENT(i4).AnatomicalLandmark.Name},'RGH');
+if sum(iRGH) > 0
+    GHr = BODY.SEGMENT(i4).AnatomicalLandmark(iRGH).Kinematics;
 else
-    GHr=ghestnew_gert_left_VECT(PC,AC,AA,TS,AI); % Glenohumeral rot-centre estimation (Meskers 1998)
-    % Adding GH it to the BODY structure
-    BODY.SEGMENT(i4).AnatomicalLandmark(end+1).Name = 'LGH';
-    BODY.SEGMENT(i4).AnatomicalLandmark(end).Kinematics = GHr;    
+    if ~isempty(i4)
+        GHr=ghestnew_gert_right_VECT(PC,AC,AA,TS,AI); % Glenohumeral rot-centre estimation (Meskers 1998)
+        % Adding GH it to the BODY structure
+        BODY.SEGMENT(i4).AnatomicalLandmark(end+1).Name = 'RGH';
+        BODY.SEGMENT(i4).AnatomicalLandmark(end).Kinematics = GHr;   
+    end
 end
 
 % ########################################
@@ -133,27 +136,27 @@ end
 % ########################################
 
 if ~isempty(i1)
-    iMHA = strcmp({BODY.SEGMENT(i1).FunctionalAxis.Name},'LMHA');
+    iMHA = strcmp({BODY.SEGMENT(i1).FunctionalAxis.Name},'RMHA');
     MHA = BODY.SEGMENT(i1).FunctionalAxis(iMHA).Marker1.Kinematics - BODY.SEGMENT(i1).FunctionalAxis(iMHA).Marker2.Kinematics;
-    BODY.SEGMENT(i1).AnatomicalFrame.KinematicsPose = AnatomicalFrameDefinition_VECT('Left_Humerus_f', GHr, EL, EM, MHA);
+    BODY.SEGMENT(i1).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Right_Humerus_f',GHr, EL, EM, MHA);
 end
 if ~isempty(i2)
-    BODY.SEGMENT(i2).AnatomicalFrame.KinematicsPose = AnatomicalFrameDefinition_VECT('Left_Forearm',RS, US, EL, EM);
+    BODY.SEGMENT(i2).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Right_Forearm',RS, US, EL, EM);
 end
-if ~isempty(i3)
-    BODY.SEGMENT(i3).AnatomicalFrame.KinematicsPose = AnatomicalFrameDefinition_VECT('Left_Hand',MC3, MCP3, MCP5);
+if ~isempty(i3) 
+    BODY.SEGMENT(i3).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Right_Hand',MC3, MCP3, MCP5);
 end
 if ~isempty(i4)
-    BODY.SEGMENT(i4).AnatomicalFrame.KinematicsPose = AnatomicalFrameDefinition_VECT('Left_Acromion',AA, AI, TS);
+    BODY.SEGMENT(i4).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Right_Acromion',AA, AI, TS);
 end
 if ~isempty(i5)
-    BODY.SEGMENT(i5).AnatomicalFrame.KinematicsPose = AnatomicalFrameDefinition_VECT('Left_Sternum',C7, T8, IJ, PX);
+    BODY.SEGMENT(i5).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Right_Sternum',C7, T8, IJ, PX);
 end
 % added March 2009
 if ~isempty(i6)
-    BODY.SEGMENT(i6).AnatomicalFrame.KinematicsPose = AnatomicalFrameDefinition_VECT('Left_Hum1',GHr, EL, EM);
+    BODY.SEGMENT(i6).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Right_Hum1',GHr, EL, EM);
 end
-%BODY.SEGMENT(7).AnatomicalFrame.KinematicsPose(:,:,t)=AnatomicalFrameDefinition('Chair',[CH1 CH2 CH3]);
+%BODY.SEGMENT(7).AnatomicalFrame.KinematicsPose=AnatomicalFrameDefinition_VECT('Chair',CH1, CH2, CH3);
 
 %###############################################
 % DEFINE STICKFIGURE (for visualization only) ##
@@ -207,4 +210,4 @@ end
 
 % end
 %==========================================================
-% END ### AnatCalc_UL_6Segm_Left ###
+% END ### AnatCalc_UL_6Segm_Right ###

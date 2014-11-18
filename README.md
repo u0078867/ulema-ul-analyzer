@@ -24,7 +24,7 @@ The software was developed by the Catholic University of Leuven (Belgium) throug
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.1.2**.
+The most recent version of U.L.E.M.A. is **1.1.3**.
 
 The most recent version of Report Generator is **1.1**.
 
@@ -86,6 +86,8 @@ U.L.E.M.A.:
 1.1.3 (by the end of March):
 - In Kinematics options, when some markers are not visible in the single file calibrations, try 
 to search for the the corresponding separated calibration files anyway.
+- Camera rate is now read from the parameter RATE in the group POINT (wheras before it was read from TRIAL/CAMERA_RATE).
+This seems like a more standard way to get this value (it works for Qualysis and Vicon).
 
 Report generator:
 
@@ -97,6 +99,9 @@ Report generator:
 **What's new**
 
 U.L.E.M.A.:
+
+1.1.3 (13/11/2014):
+- Solved issue #20 (Issue in marker deleting when filtering for unwanted joints)
 
 1.1.2 (05/02/2014):
 - Solved issue #12 (added BTK bindings for Windows 7 32-bit)

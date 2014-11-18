@@ -96,7 +96,7 @@ if sectionsToComp.rawDataRead
                         subject.sessions(j).trials(k).data.stParam.eventsRaw.eventTime = eventTime;
                         fprintf('\n     Tr: Events data loaded ...');
                         % Read acuisition frequecy from file
-                        kineFreq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');
+                        kineFreq = getparam(ParameterGroup, 'POINT', 'RATE');
                         subject.sessions(j).trials(k).data.kineFreq = kineFreq;
                         fprintf('\n     Tr: Markers acquisition frequency loaded ...');
                         fprintf('\n     Tr: Necessary data for dynamic file %s loaded ...', datafile);

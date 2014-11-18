@@ -28,7 +28,7 @@ if ~isstruct(markerGroup)
     if strcmp(markerGroup,'TechnicalMarkers') 
         for i = 1 : length(BODY.SEGMENT)
             for j = 1 : length(BODY.SEGMENT(i).Cluster.MarkerLabels)
-                points.(BODY.SEGMENT(i).Cluster.MarkerLabels{j}) = squeeze(BODY.SEGMENT(i).Cluster.KinematicsMarkers(:,j,:))';    
+                points.(BODY.SEGMENT(i).Cluster.MarkerLabels{j}) = squeeze(BODY.SEGMENT(i).Cluster.KinematicsMarkers(:,j,:))'; 
             end
         end
     end

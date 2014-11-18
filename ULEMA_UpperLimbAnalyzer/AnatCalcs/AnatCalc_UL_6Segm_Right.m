@@ -123,10 +123,12 @@ iRGH = strcmp({BODY.SEGMENT(i4).AnatomicalLandmark.Name},'RGH');
 if sum(iRGH) > 0
     GHr = BODY.SEGMENT(i4).AnatomicalLandmark(iRGH).Kinematics;
 else
-    GHr=ghestnew_gert_right_VECT(PC,AC,AA,TS,AI); % Glenohumeral rot-centre estimation (Meskers 1998)
-    % Adding GH it to the BODY structure
-    BODY.SEGMENT(i4).AnatomicalLandmark(end+1).Name = 'RGH';
-    BODY.SEGMENT(i4).AnatomicalLandmark(end).Kinematics = GHr;    
+    if ~isempty(i4)
+        GHr=ghestnew_gert_right_VECT(PC,AC,AA,TS,AI); % Glenohumeral rot-centre estimation (Meskers 1998)
+        % Adding GH it to the BODY structure
+        BODY.SEGMENT(i4).AnatomicalLandmark(end+1).Name = 'RGH';
+        BODY.SEGMENT(i4).AnatomicalLandmark(end).Kinematics = GHr;  
+    end
 end
 
 % ########################################

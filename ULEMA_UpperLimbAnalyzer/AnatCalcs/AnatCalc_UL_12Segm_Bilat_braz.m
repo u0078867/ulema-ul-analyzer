@@ -99,8 +99,8 @@ if ~isempty(i4)
     RAA=BODY.SEGMENT(i4).AnatomicalLandmark(1).Kinematics;  % ang acromialis
     RAI=BODY.SEGMENT(i4).AnatomicalLandmark(2).Kinematics;  % ang inferior
     RTS=BODY.SEGMENT(i4).AnatomicalLandmark(3).Kinematics;  % trig spin scap
-    RPC=BODY.SEGMENT(i4).AnatomicalLandmark(4).Kinematics;  % proc coraco�deus
-    RAC=BODY.SEGMENT(i4).AnatomicalLandmark(5).Kinematics;  % art acromiocalvicularis
+%     RPC=BODY.SEGMENT(i4).AnatomicalLandmark(4).Kinematics;  % proc coraco�deus
+%     RAC=BODY.SEGMENT(i4).AnatomicalLandmark(5).Kinematics;  % art acromiocalvicularis
 end
 
 %right sternum
@@ -123,10 +123,13 @@ iRGH = strcmp({BODY.SEGMENT(i4).AnatomicalLandmark.Name},'RGH');
 if sum(iRGH) > 0
     RGHr = BODY.SEGMENT(i4).AnatomicalLandmark(iRGH).Kinematics;
 else
-    RGHr=ghestnew_gert_right_VECT(RPC,RAC,RAA,RTS,RAI); % Glenohumeral rot-centre estimation (Meskers 1998)
-    % Adding GH it to the BODY structure
-    BODY.SEGMENT(i4).AnatomicalLandmark(end+1).Name = 'RGH';
-    BODY.SEGMENT(i4).AnatomicalLandmark(end).Kinematics = RGHr;    
+    if (~isempty(i1) || ~isempty(i6))% && isempty(i4)
+        error('RGH is needed but there is no way to calculate it');
+%     RGHr=ghestnew_gert_right_VECT(RPC,RAC,RAA,RTS,RAI); % Glenohumeral rot-centre estimation (Meskers 1998)
+%     % Adding GH it to the BODY structure
+%     BODY.SEGMENT(i4).AnatomicalLandmark(end+1).Name = 'RGH';
+%     BODY.SEGMENT(i4).AnatomicalLandmark(end).Kinematics = RGHr;   
+    end
 end
 
 %left humerus
@@ -158,8 +161,8 @@ if ~isempty(i10)
     LAA=BODY.SEGMENT(i10).AnatomicalLandmark(1).Kinematics;  % ang acromialis
     LAI=BODY.SEGMENT(i10).AnatomicalLandmark(2).Kinematics;  % ang inferior
     LTS=BODY.SEGMENT(i10).AnatomicalLandmark(3).Kinematics;  % trig spin scap
-    LPC=BODY.SEGMENT(i10).AnatomicalLandmark(4).Kinematics;  % proc coraco�deus
-    LAC=BODY.SEGMENT(i10).AnatomicalLandmark(5).Kinematics;  % art acromiocalvicularis
+%     LPC=BODY.SEGMENT(i10).AnatomicalLandmark(4).Kinematics;  % proc coraco�deus
+%     LAC=BODY.SEGMENT(i10).AnatomicalLandmark(5).Kinematics;  % art acromiocalvicularis
 end
 
 %left sternum
@@ -182,10 +185,13 @@ iLGH = strcmp({BODY.SEGMENT(i10).AnatomicalLandmark.Name},'LGH');
 if sum(iLGH) > 0
     LGHr = BODY.SEGMENT(i10).AnatomicalLandmark(iLGH).Kinematics;
 else
-    LGHr=ghestnew_gert_left_VECT(LPC,LAC,LAA,LTS,LAI); % Glenohumeral rot-centre estimation (Meskers 1998)
-    % Adding GH it to the BODY structure
-    BODY.SEGMENT(i10).AnatomicalLandmark(end+1).Name = 'LGH';
-    BODY.SEGMENT(i10).AnatomicalLandmark(end).Kinematics = LGHr;    
+    if (~isempty(i7) || ~isempty(i12))% && isempty(i10)
+        error('LGH is needed but there is no way to calculate it');
+%         LGHr=ghestnew_gert_left_VECT(LPC,LAC,LAA,LTS,LAI); % Glenohumeral rot-centre estimation (Meskers 1998)
+%         % Adding GH it to the BODY structure
+%         BODY.SEGMENT(i10).AnatomicalLandmark(end+1).Name = 'LGH';
+%         BODY.SEGMENT(i10).AnatomicalLandmark(end).Kinematics = LGHr;  
+    end
 end
 
 % ########################################

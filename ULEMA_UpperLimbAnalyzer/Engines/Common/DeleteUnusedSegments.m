@@ -63,9 +63,18 @@ segmentsToDelete(indexesToKeep) = [];
 markersToDelete = [];
 for i = 1 : length(BODY.SEGMENT)
     if ~isempty(findc(segmentsToDelete, BODY.SEGMENT(i).Name))
-        markersToDelete = [markersToDelete, BODY.SEGMENT(i).Cluster.MarkerInputFileIndices];
+        remainedMarkers = [];
+        for j = 1 : length(BODY.SEGMENT)
+            if i ~= j && isempty(findc(segmentsToDelete, BODY.SEGMENT(j).Name))
+                 remainedMarkers = [remainedMarkers, BODY.SEGMENT(j).Cluster.MarkerInputFileIndices];
+            end
+        end
+        remainedMarkers = unique(remainedMarkers);
+        toDelete = setdiff(BODY.SEGMENT(i).Cluster.MarkerInputFileIndices, remainedMarkers);
+        markersToDelete = [markersToDelete, toDelete];
     end
 end
+markersToDelete = unique(markersToDelete);
 
 % Delete segments and markers
 indexesToDelete = [];

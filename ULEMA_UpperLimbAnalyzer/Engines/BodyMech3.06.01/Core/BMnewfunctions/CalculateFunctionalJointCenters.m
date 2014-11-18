@@ -74,7 +74,7 @@ for i = 1 : size(DJCList,1)
     if ischar(DJCList{i,3})
         % Read C3D file
         [dummy,ParameterGroup,CollDate,CollTime] = BMimportULC3D_3_AUTO(DJCList{i,3},FullPath);
-        freq = getparam(ParameterGroup, 'TRIAL', 'CAMERA_RATE');
+        freq = getparam(ParameterGroup, 'POINT', 'RATE');
     else
         % Recover marker data from the structure
         MARKER_DATA = getMarkersDataFromStruct(DJCList{i,3}.data.points,BODY.CONTEXT.MarkerLabels);
