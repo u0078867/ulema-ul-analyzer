@@ -138,6 +138,7 @@ newList = get(handles.anglesListEdit,'String');
 i1 = 1;
 i2 = length(newList);
 handles.bestCy.anglesList{handles.row}(i1:i2,1) = newList;
+handles.bestCy.anglesList{handles.row} = handles.bestCy.anglesList{handles.row}(:,1);
 guidata(hObject, handles);
 
 
