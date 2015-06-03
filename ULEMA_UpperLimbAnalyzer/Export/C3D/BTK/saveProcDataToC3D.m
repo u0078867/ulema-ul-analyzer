@@ -86,7 +86,11 @@ if isfield(trial, 'cycles')
     contexts = fieldnames(trial.cycles);
     % Read the name of the subjects
     metaData = btkGetMetaData(h);
-    subName = metaData.children.SUBJECTS.children.NAMES.info.values{1};
+    if isfield(metaData.children, 'SUBJECTS')
+        subName = metaData.children.SUBJECTS.children.NAMES.info.values{1};
+    else
+        subName = '';
+    end
     % Cycle for every parameter
     for co = 1 : length(contexts)
         for cy = 1 : length(trial.cycles.(contexts{co}))
