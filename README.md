@@ -97,7 +97,7 @@ Report generator:
 
 U.L.E.M.A.:
 
-1.1.4 (03/06/2015):
+1.1.5 (03/06/2015):
 - Solved issue #23 (bug when adding data to C3D if the file does not contain the SUBJECTS section).
 
 1.1.4 (03/12/2014):
