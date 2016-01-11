@@ -160,7 +160,13 @@ return
 % END ### InterpolateMarkerKinematics ###
 
 function X = CubicSpline(X)
-% Interpolate over NaNs using cubic spline
-X(isnan(X)) = interp1(find(~isnan(X)), X(~isnan(X)), find(isnan(X)), 'cubic'); 
+% Search where there is first and last valid value
+bad = (isnan(X) | X==0);
+good = ~bad;
+i1 = find(good,1,'first');
+i2 = find(good,1,'last');
+% Interpolate using cubic spline (avoid extrapolation)
+%X(isnan(X(i1:i2))) = interp1(find(~isnan(X(i1:i2))), X(~isnan(X(i1:i2))), find(isnan(X(i1:i2))), 'cubic'); 
+X(bad(i1:i2)) = interp1(find(good(i1:i2)), X(good(i1:i2)), find(bad(i1:i2)), 'cubic');
 
 

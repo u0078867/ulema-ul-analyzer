@@ -78,7 +78,7 @@ end
 ymean = cellfun(@mean, y, 'UniformOutput', false);
 B = cellfun(@calcB, NmarkersCell, y, ymean, 'UniformOutput', false);
 C = cellfun(@calcC, Ac, B, NmarkersCell, 'UniformOutput', false);
-[U,S,V] = cellfun(@svd, C, 'UniformOutput', false);
+[U,S,V] = cellfun(@svd2, C, 'UniformOutput', false);
 Vt = cellfun(@transpose, V, 'UniformOutput', false);
 UVt = cellfun(@mtimes, U, Vt, 'UniformOutput', false);
 D = cellfun(@det, UVt, 'UniformOutput', false);
@@ -145,6 +145,15 @@ e = 0;
 return
 % ============================================
 % END ### RigidBodyTransformation ###
+
+function [U,S,V] = svd2(X)
+if sum(sum(isnan(X))) > 0
+    U = nan(size(X,1), size(X,1));
+    S = size(X);
+    V = nan(size(X,2), size(X,2));
+else
+    [U,S,V] = svd(X);
+end
 
 function B = calcB(Nmarkers, y, ymean)
 B = y-ones(Nmarkers,3)*diag(ymean);

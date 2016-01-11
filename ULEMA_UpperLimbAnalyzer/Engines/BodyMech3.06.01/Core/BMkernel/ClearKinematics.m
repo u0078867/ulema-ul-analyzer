@@ -50,28 +50,28 @@ else
             if strcmp(scope,'markers')
                 BODY.SEGMENT(iSegment).Cluster.TimeGain=[];
                 BODY.SEGMENT(iSegment).Cluster.TimeOffset=[];
-                BODY.SEGMENT(iSegment).Cluster.KinematicsMarkers=zeros(3,0,0);
+                BODY.SEGMENT(iSegment).Cluster.KinematicsMarkers=nan(3,0,0);
                 BODY.SEGMENT(iSegment).Cluster.RecordedMarkers=zeros(0,0);
                 BODY.SEGMENT(iSegment).Cluster.AvailableMarkers=zeros(0,0);
-                BODY.SEGMENT(iSegment).Cluster.KinematicsPose=zeros(4,4,0);
-                BODY.SEGMENT(iSegment).Cluster.PostureRefKinematicsPose=zeros(4,4,0);
+                BODY.SEGMENT(iSegment).Cluster.KinematicsPose=nan(4,4,0);
+                BODY.SEGMENT(iSegment).Cluster.PostureRefKinematicsPose=nan(4,4,0);
 
                 for iLandmark=1:length(BODY.SEGMENT(iSegment).AnatomicalLandmark),
-                    BODY.SEGMENT(iSegment).AnatomicalLandmark(iLandmark).Kinematics=zeros(3,0);
+                    BODY.SEGMENT(iSegment).AnatomicalLandmark(iLandmark).Kinematics=nan(3,0);
                 end
 
                 nStickmarkers2=length(BODY.SEGMENT(iSegment).StickFigure);
                 for iStickmarker=1:nStickmarkers2,
-                    BODY.SEGMENT(iSegment).StickFigure(iStickmarker).Kinematics=zeros(3,0,0);
+                    BODY.SEGMENT(iSegment).StickFigure(iStickmarker).Kinematics=nan(3,0,0);
                 end
 
-                BODY.SEGMENT(iSegment).AnatomicalFrame.KinematicsPose=zeros(4,4,0);
+                BODY.SEGMENT(iSegment).AnatomicalFrame.KinematicsPose=nan(4,4,0);
 
             elseif strcmp(scope,'segments')
-                BODY.SEGMENT(iSegment).Cluster.PostureRefKinematicsPose=zeros(4,4,0);
-                BODY.SEGMENT(iSegment).AnatomicalLandmark.Kinematics=zeros(3,0,0);
-                BODY.SEGMENT(iSegment).StickFigure.Kinematics=zeros(3,0,0);
-                BODY.SEGMENT(iSegment).AnatomicalFrame.KinematicsPose=zeros(4,4,0);
+                BODY.SEGMENT(iSegment).Cluster.PostureRefKinematicsPose=nan(4,4,0);
+                BODY.SEGMENT(iSegment).AnatomicalLandmark.Kinematics=nan(3,0,0);
+                BODY.SEGMENT(iSegment).StickFigure.Kinematics=nan(3,0,0);
+                BODY.SEGMENT(iSegment).AnatomicalFrame.KinematicsPose=nan(4,4,0);
 
             elseif strcmp(scope,'joints')
                 % nil
@@ -91,10 +91,10 @@ Njoints=length(BODY.JOINT);
 if Nsegments ~=0
     for iJoint=1:Njoints
         if ~isempty(BODY.JOINT(iJoint).Name)
-            BODY.JOINT(iJoint).PostureRefKinematics.Pose=zeros(4,4,0);
-            BODY.JOINT(iJoint).AnatomyRefKinematics.Pose=zeros(4,4,0);
-            BODY.JOINT(iJoint).PostureRefKinematics.RotationAngles=zeros(3,0);
-            BODY.JOINT(iJoint).AnatomyRefKinematics.RotationAngles=zeros(3,0);
+            BODY.JOINT(iJoint).PostureRefKinematics.Pose=nan(4,4,0);
+            BODY.JOINT(iJoint).AnatomyRefKinematics.Pose=nan(4,4,0);
+            BODY.JOINT(iJoint).PostureRefKinematics.RotationAngles=nan(3,0);
+            BODY.JOINT(iJoint).AnatomyRefKinematics.RotationAngles=nan(3,0);
         end
     end
 end

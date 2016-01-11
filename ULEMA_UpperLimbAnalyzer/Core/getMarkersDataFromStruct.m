@@ -12,7 +12,7 @@ function MARKER_DATA = getMarkersDataFromStruct(points, MarkerLabels)
 
 pn = MarkerLabels;
 nf = size(points.(pn{1}),1);
-MARKER_DATA = zeros(3, length(MarkerLabels), nf);
+MARKER_DATA = nan(3, length(MarkerLabels), nf);
 for i = 1 : length(pn)
     if isfield(points,pn{i}) && ~isempty(points.(pn{i}))
         MARKER_DATA(:,i,:) = reshape(points.(pn{i})', 3, 1, nf);

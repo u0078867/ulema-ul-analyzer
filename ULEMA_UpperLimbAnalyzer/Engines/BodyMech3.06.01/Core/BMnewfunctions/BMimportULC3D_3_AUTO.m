@@ -56,7 +56,7 @@ if datafile ~= 0
 
     [Markers,VideoFrameRate,AnalogSignals,AnalogFrameRate,Event,ParameterGroup,CameraInfo,ResidualError]=...
         readC3D_mhs(fullfile(datapath,datafile));
-
+    Markers(Markers==0) = NaN;
 
     %groupnames = [ParameterGroup.name];         % array of strings of groupnames
     %pointindex = strcmp(groupnames, 'POINT');   % find the index for the 'POINT'group
@@ -80,7 +80,7 @@ if datafile ~= 0
     MyLabelSequence = BODY.CONTEXT.MarkerLabels;
     nMarkers=length(MyLabelSequence);
     [nDim, M, nFrames]  = size(Markers);
-    MyMarkers = zeros(nDim, length(MyLabelSequence), nFrames);
+    MyMarkers = nan(nDim, length(MyLabelSequence), nFrames);
     for i = 1:nMarkers,
 %        j = strmatch(MyLabelSequence{1,i},LabelSequence,'exact'); % captured in workstation
         j = strmatch_label(MyLabelSequence{i},LabelSequence); % nexus

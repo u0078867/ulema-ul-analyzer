@@ -24,7 +24,7 @@ The software was developed by the Catholic University of Leuven (Belgium) throug
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.1.5**.
+The most recent version of U.L.E.M.A. is **1.1.6**.
 
 The most recent version of Report Generator is **1.1**.
 
@@ -83,7 +83,7 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
-1.1.6
+1.1.7
 - To decide
 
 Report generator:
@@ -96,6 +96,10 @@ Report generator:
 **What's new**
 
 U.L.E.M.A.:
+
+1.1.6: (11/01/2016):
+- Solved issue #24 (erroneous zone for marker data interpolation and gimbal lock correction)
+- Anatomical marker data calculated from clusters with missing technical markers is not shown (wrong) anymore in the exported C3D.
 
 1.1.5 (03/06/2015):
 - Solved issue #23 (bug when adding data to C3D if the file does not contain the SUBJECTS section).

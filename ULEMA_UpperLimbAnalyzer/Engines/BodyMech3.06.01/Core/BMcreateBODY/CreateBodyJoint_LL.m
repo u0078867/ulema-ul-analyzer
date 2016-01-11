@@ -115,16 +115,16 @@ else
     BODY.JOINT(JointIndex).DistalSegmentName=BODY.SEGMENT(SegmentLinks(2)).Name;
 end
 % Posture referenced kinematics
-BODY.JOINT(JointIndex).PostureRefKinematics.Pose=zeros(4,4,0);
+BODY.JOINT(JointIndex).PostureRefKinematics.Pose=nan(4,4,0);
 BODY.JOINT(JointIndex).PostureRefKinematics.DecompositionFormat=DecompositionFormat;
-BODY.JOINT(JointIndex).PostureRefKinematics.RotationAngles=zeros(3,0);
+BODY.JOINT(JointIndex).PostureRefKinematics.RotationAngles=nan(3,0);
 BODY.JOINT(JointIndex).PostureRefKinematics.TimeGain=BODY.SEGMENT(SegmentLinks(1)).Cluster.TimeGain;
 BODY.JOINT(JointIndex).PostureRefKinematics.TimeOffset=BODY.SEGMENT(SegmentLinks(1)).Cluster.TimeOffset;
 
 % Anatomy referenced kinematics
-BODY.JOINT(JointIndex).AnatomyRefKinematics.Pose=zeros(4,4,0);
+BODY.JOINT(JointIndex).AnatomyRefKinematics.Pose=nan(4,4,0);
 BODY.JOINT(JointIndex).AnatomyRefKinematics.DecompositionFormat=DecompositionFormat;
-BODY.JOINT(JointIndex).AnatomyRefKinematics.RotationAngles=zeros(3,0);
+BODY.JOINT(JointIndex).AnatomyRefKinematics.RotationAngles=nan(3,0);
 BODY.JOINT(JointIndex).AnatomyRefKinematics.TimeGain=BODY.SEGMENT(SegmentLinks(1)).Cluster.TimeGain;
 BODY.JOINT(JointIndex).AnatomyRefKinematics.TimeOffset=BODY.SEGMENT(SegmentLinks(1)).Cluster.TimeOffset;
 

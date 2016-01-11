@@ -38,7 +38,7 @@ for i = 1 : length(angle)
     else
         angleRef = angle(i-1);
     end
-    if abs(angle(i) - angleRef) > jump
+    if ~isnan(angle(i)) && ~isnan(angleRef) && abs(angle(i) - angleRef) > jump
          if sign(angleRef - angle(i)) == 1 
             angle(i:end) = angle(i:end) + 360; 
          else  

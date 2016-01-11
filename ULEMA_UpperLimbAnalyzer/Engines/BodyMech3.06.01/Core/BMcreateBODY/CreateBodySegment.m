@@ -94,33 +94,33 @@ end
 BODY.SEGMENT(SegmentId).Name=SegmentName;
 % SEGMENT.Cluster fields
 BODY.SEGMENT(SegmentId).Cluster.MarkerInputFileIndices=MarkerList;
-BODY.SEGMENT(SegmentId).Cluster.MarkerCoordinates=zeros(0,0);
+BODY.SEGMENT(SegmentId).Cluster.MarkerCoordinates=nan(0,0);
 	% reference and anatomical calibration
-BODY.SEGMENT(SegmentId).Cluster.PosturePose=zeros(4,4,0);
+BODY.SEGMENT(SegmentId).Cluster.PosturePose=nan(4,4,0);
 	% kinematics
-BODY.SEGMENT(SegmentId).Cluster.KinematicsMarkers=zeros(3,0,0);
+BODY.SEGMENT(SegmentId).Cluster.KinematicsMarkers=nan(3,0,0);
 BODY.SEGMENT(SegmentId).Cluster.RecordedMarkers=zeros(0,0);
 BODY.SEGMENT(SegmentId).Cluster.AvailableMarkers=zeros(0,0);
-BODY.SEGMENT(SegmentId).Cluster.KinematicsPose=zeros(4,4,0);
-BODY.SEGMENT(SegmentId).Cluster.PostureRefKinematicsPose=zeros(4,4,0);
+BODY.SEGMENT(SegmentId).Cluster.KinematicsPose=nan(4,4,0);
+BODY.SEGMENT(SegmentId).Cluster.PostureRefKinematicsPose=nan(4,4,0);
 	% time
 BODY.SEGMENT(SegmentId).Cluster.TimeGain=0;
 BODY.SEGMENT(SegmentId).Cluster.TimeOffset=0;
 
 % SEGMENT.StickFigure fields
 	% reference and anatomical calibration
-BODY.SEGMENT(SegmentId).StickFigure.ClusterFrameCoordinates=zeros(3,0);
+BODY.SEGMENT(SegmentId).StickFigure.ClusterFrameCoordinates=nan(3,0);
 	% kinematics
-BODY.SEGMENT(SegmentId).StickFigure.Kinematics=zeros(3,0,0);
+BODY.SEGMENT(SegmentId).StickFigure.Kinematics=nan(3,0,0);
 	% time
 BODY.SEGMENT(SegmentId).StickFigure.TimeGain=0;
 BODY.SEGMENT(SegmentId).StickFigure.TimeOffset=0;
 
 % SEGMENT.AnatomicalFrame fields
 	% reference and anatomical calibration
-BODY.SEGMENT(SegmentId).AnatomicalFrame.ToCluster=zeros(4,4,0);	% kinematics
+BODY.SEGMENT(SegmentId).AnatomicalFrame.ToCluster=nan(4,4,0);	% kinematics
 	% kinematics
-BODY.SEGMENT(SegmentId).AnatomicalFrame.KinematicsPose=zeros(4,4,0);
+BODY.SEGMENT(SegmentId).AnatomicalFrame.KinematicsPose=nan(4,4,0);
 	% time
 BODY.SEGMENT(SegmentId).AnatomicalFrame.TimeGain=0;
 BODY.SEGMENT(SegmentId).AnatomicalFrame.TimeOffset=0;
@@ -130,11 +130,11 @@ BODY.SEGMENT(SegmentId).AnatomicalFrame.MarkerModel=[''];
 % SEGMENT.AnatomicalLandmark fields
 	% reference and anatomical calibration
 BODY.SEGMENT(SegmentId).AnatomicalLandmark.Name={};
-BODY.SEGMENT(SegmentId).AnatomicalLandmark.ProbingPose=zeros(4,4,0);
-BODY.SEGMENT(SegmentId).AnatomicalLandmark.ClusterFrameCoordinates=zeros(3,0);
+BODY.SEGMENT(SegmentId).AnatomicalLandmark.ProbingPose=nan(4,4,0);
+BODY.SEGMENT(SegmentId).AnatomicalLandmark.ClusterFrameCoordinates=nan(3,0);
 BODY.SEGMENT(SegmentId).AnatomicalLandmark.MarkerInputFileIndex=0;
 	% kinematics
-BODY.SEGMENT(SegmentId).AnatomicalLandmark.Kinematics=zeros(3,0,0);
+BODY.SEGMENT(SegmentId).AnatomicalLandmark.Kinematics=nan(3,0,0);
 	% time
 BODY.SEGMENT(SegmentId).AnatomicalLandmark.TimeGain=0;
 BODY.SEGMENT(SegmentId).AnatomicalLandmark.TimeOffset=0;

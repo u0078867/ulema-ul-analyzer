@@ -23,6 +23,7 @@ h = btkReadAcquisition(inpath);
 fn = fieldnames(trial.data.points);
 for i = 1 : length(fn)
     currPoint = trial.data.points.(fn{i});
+    currPoint(currPoint==0) = NaN;
     try
         btkAppendPoint(h, 'marker', fn{i}, currPoint);
     catch
