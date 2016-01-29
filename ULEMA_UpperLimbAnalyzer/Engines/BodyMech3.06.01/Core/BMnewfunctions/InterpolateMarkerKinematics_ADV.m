@@ -166,7 +166,9 @@ good = ~bad;
 i1 = find(good,1,'first');
 i2 = find(good,1,'last');
 % Interpolate using cubic spline (avoid extrapolation)
-%X(isnan(X(i1:i2))) = interp1(find(~isnan(X(i1:i2))), X(~isnan(X(i1:i2))), find(isnan(X(i1:i2))), 'cubic'); 
-X(bad(i1:i2)) = interp1(find(good(i1:i2)), X(good(i1:i2)), find(bad(i1:i2)), 'cubic');
+%X(isnan(X(i1:i2))) = interp1(find(~isnan(X(i1:i2))), X(~isnan(X(i1:i2))), find(isnan(X(i1:i2))), 'cubic');
+if sum(bad(i1:i2)) > 0
+    X(bad(i1:i2)) = interp1(find(good(i1:i2)), X(good(i1:i2)), find(bad(i1:i2)), 'cubic');
+end
 
 

@@ -97,9 +97,11 @@ Report generator:
 
 U.L.E.M.A.:
 
-1.1.6: (11/01/2016):
+1.1.6: (29/01/2016):
 - Solved issue #24 (erroneous zone for marker data interpolation and gimbal lock correction)
 - Anatomical marker data calculated from clusters with missing technical markers is not shown (wrong) anymore in the exported C3D.
+- Solved issue #25 (one NaN contained in cycle-striped data when there is not data already in the frame before the first event for the first cycle)
+- Enhanced with issue #26 (C3D not starting from frame 1 are now usable)
 
 1.1.5 (03/06/2015):
 - Solved issue #23 (bug when adding data to C3D if the file does not contain the SUBJECTS section).

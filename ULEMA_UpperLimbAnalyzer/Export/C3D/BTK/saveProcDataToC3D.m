@@ -35,7 +35,7 @@ end
 fn = fieldnames(trial.data.angles);
 for i = 1 : length(fn)
     % Get the raw angle
-    currAngle = [trial.data.angles.(fn{i}) zeros(length(trial.data.angles.(fn{i})),2)];
+    currAngle = [trial.data.angles.(fn{i}) eps*ones(length(trial.data.angles.(fn{i})),2)]; % *
     % Remove data before first event and last event in the file, to avoid
     % bad data parsing from Vicon Polygon
     eventsTime = trial.data.stParam.eventsRaw.eventTime;
@@ -48,6 +48,7 @@ for i = 1 : length(fn)
         safetyFrames = 2;
         currAngle(1:fr1-safetyFrames,:) = 0;
         currAngle(fr2+safetyFrames:end,:) = 0;
+        currAngle(currAngle==0) = NaN;
     end
     try
         btkAppendPoint(h, 'angle', fn{i}, currAngle);
@@ -56,6 +57,9 @@ for i = 1 : length(fn)
     end
 end
 
+% NOTES:
+% *: it seems Nexus 1.8.5, when saving a point, there can be NaNs in it,
+% but not the whole component, otherwise the whole point is not shown.
 
 % Writing spatio-temporal parameters for the cycles, if cycles are present,
 % in the ANALYSIS section, so that they readable by Polygon.

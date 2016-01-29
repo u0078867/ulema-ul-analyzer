@@ -216,7 +216,7 @@ for s = 1 : length(foundSides)
                 xNew = [0:1:100];
                 if ~isempty(fSync)  % If I have at least a sync event, the phases are 2
                     % Phase 1
-                    f1 = fStart(i)*f(k);
+                    f1 = fStart(i)*f(k)+1;
                     f2 = fSync(i,1)*f(k);
                     xOld = [0:100/(f2-f1):100];
                     dataToUse = data.(toCutAndNorm{k}).(fn{j})(f1:f2,:);
@@ -228,7 +228,7 @@ for s = 1 : length(foundSides)
                     end
                     % Phase 2 to N-1
                     for ev = 1 : size(fSync,2)-1
-                        f1 = fSync(i,ev)*f(k);
+                        f1 = fSync(i,ev)*f(k)+1;
                         f2 = fSync(i,ev+1)*f(k);
                         xOld = [0:100/(f2-f1):100];
                         dataToUse = data.(toCutAndNorm{k}).(fn{j})(f1:f2,:);
@@ -240,7 +240,7 @@ for s = 1 : length(foundSides)
                         end
                     end
                     % Phase N
-                    f1 = fSync(i,end)*f(k);
+                    f1 = fSync(i,end)*f(k)+1;
                     f2 = fStop(i)*f(k);
                     xOld = [0:100/(f2-f1):100];
                     dataToUse = data.(toCutAndNorm{k}).(fn{j})(f1:f2,:);
@@ -252,7 +252,7 @@ for s = 1 : length(foundSides)
                     end
                 end
                 % Overall cycle
-                f1 = fStart(i)*f(k);
+                f1 = fStart(i)*f(k)+1;
                 f2 = fStop(i)*f(k);
                 xOld = [0:100/(f2-f1):100];
                 dataToUse = data.(toCutAndNorm{k}).(fn{j})(f1:f2,:);

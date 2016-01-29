@@ -91,9 +91,11 @@ if sectionsToComp.rawDataRead
                         else
                             eventTime = {};
                         end
+                        kineFreq = getparam(ParameterGroup, 'POINT', 'RATE');
+                        startFrame = getparam(ParameterGroup, 'TRIAL', 'ACTUAL_START_FIELD');
                         subject.sessions(j).trials(k).data.stParam.eventsRaw.eventSide = eventSide;
                         subject.sessions(j).trials(k).data.stParam.eventsRaw.eventType = eventType;
-                        subject.sessions(j).trials(k).data.stParam.eventsRaw.eventTime = eventTime;
+                        subject.sessions(j).trials(k).data.stParam.eventsRaw.eventTime = eventTime - (startFrame(1) - 1) / kineFreq;
                         fprintf('\n     Tr: Events data loaded ...');
                         % Read acuisition frequecy from file
                         kineFreq = getparam(ParameterGroup, 'POINT', 'RATE');
