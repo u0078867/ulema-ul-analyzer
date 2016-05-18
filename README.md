@@ -24,7 +24,7 @@ The software was developed by the Catholic University of Leuven (Belgium) throug
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.1.6**.
+The most recent version of U.L.E.M.A. is **1.1.7**.
 
 The most recent version of Report Generator is **1.1**.
 
@@ -83,7 +83,7 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
-1.1.7
+1.1.8
 - To decide
 
 Report generator:
@@ -97,7 +97,11 @@ Report generator:
 
 U.L.E.M.A.:
 
-1.1.6: (29/01/2016):
+1.1.7 (18/05/2016):
+- Update trial segmentation configuration file with a new splitting pattern with 4 phases
+- Created new protocol that uses the segmentation indicated above
+
+1.1.6 (29/01/2016):
 - Solved issue #24 (erroneous zone for marker data interpolation and gimbal lock correction)
 - Anatomical marker data calculated from clusters with missing technical markers is not shown (wrong) anymore in the exported C3D.
 - Solved issue #25 (one NaN contained in cycle-striped data when there is not data already in the frame before the first event for the first cycle)

@@ -80,4 +80,20 @@ p.fieldsToShift={};
 p.fieldsColToShift=[];
 [\Method]
 
+[Method]
+p.method=6;
+p.type='manual';
+p.segName='Cycle is defined by four phases: GE1-GE2, GE2-GE3, GE3-GE4, GE4-GE5.';
+p.evStart='GE1';
+p.evStartPlotName='STA';
+p.evSync={'GE2','GE3','GE4'};
+p.evSyncPlotName={'PTA1','PTA2','PTA3'};
+p.evSyncTimePerc=[25,50,75];
+p.evStop='GE5';
+p.evStopPlotName='STO';
+p.evForOffset='';
+p.fieldsToShift={};
+p.fieldsColToShift=[];
+[\Method]
+
 [\Segmentation]
