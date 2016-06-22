@@ -127,6 +127,7 @@ for i = 1 : size(DJCList,1)
     AnatModifiedList{i,1} = BODY.SEGMENT(IndSeg1).Name;
     AnatModifiedList{i,2} = BODY.SEGMENT(IndSeg1).AnatomicalLandmark(IndAnatLand).Name;
     % Create output variable
+    DJC{i,3} = struct();
     if ischar(DJCList{i,3})
         DJC{i,3}.name = DJCList{i,3};
     else
@@ -135,6 +136,7 @@ for i = 1 : size(DJCList,1)
     DJC{i,3}.data.points = AggregateAllPoints(struct(),'AnatomicalLandmarks');
     DJC{i,3}.data.points = AggregateAllPoints(DJC{i,3}.data.points,'TechnicalMarkers');
     DJC{i,3}.data.freq = freq;
+    DJC{i,4} = struct();
     DJC{i,4}.name = DJCList{i,4};
     DJC{i,4}.data = C_G;
 end
