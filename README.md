@@ -24,7 +24,7 @@ The software was developed by the Catholic University of Leuven (Belgium) throug
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.1.7**.
+The most recent version of U.L.E.M.A. is **1.1.8**.
 
 The most recent version of Report Generator is **1.1**.
 
@@ -83,7 +83,7 @@ We would like acknowledge the authors of these tools here!
 
 U.L.E.M.A.:
 
-1.1.8
+1.1.9
 - To decide
 
 Report generator:
@@ -96,6 +96,9 @@ Report generator:
 **What's new**
 
 U.L.E.M.A.:
+
+1.1.8 (22/06/2016):
+- Solved issue #27 (error in new MATLAB 2015b)
 
 1.1.7 (18/05/2016):
 - Update trial segmentation configuration file with a new splitting pattern with 4 phases
