@@ -99,6 +99,7 @@ U.L.E.M.A.:
 
 1.1.9 (20/10/2016):
 - Updated with issue #28 (wrong offset added to absolute angles when chair position in a task is different from static refence position file)
+- Updated with issue #29 (reading C3D files where markers are repeated inside)
 
 1.1.8 (22/06/2016):
 - Solved issue #27 (error in new MATLAB 2015b)
