@@ -28,6 +28,8 @@ d{end+1,1} = 'absAngRefLab';        d{end,2} = 'kine';      d{end,3} = @isequal;
 d{end+1,1} = 'DJCList';             d{end,2} = 'kine';      d{end,3} = @isequalTable;       d{end,4} = [1:4];
 d{end+1,1} = 'MHAList';             d{end,2} = 'kine';      d{end,3} = @isequalTable;       d{end,4} = [1:4];
 d{end+1,1} = 'G_T_LAB';             d{end,2} = 'kine';      d{end,3} = @isequalMatrix;      d{end,4} = [];
+d{end+1,1} = 'absAngRefThis';       d{end,2} = 'kine';      d{end,3} = @isequal;            d{end,4} = [];
+d{end+1,1} = 'absAngRefThisTime';   d{end,2} = 'kine';      d{end,3} = @isequal;            d{end,4} = [];
 
 d{end+1,1} = 'segMethod';           d{end,2} = 'seg';       d{end,3} = @isequal;            d{end,4} = [];
 d{end+1,1} = 'contexts';            d{end,2} = 'seg';       d{end,3} = @isequalTable;       d{end,4} = [1:2];

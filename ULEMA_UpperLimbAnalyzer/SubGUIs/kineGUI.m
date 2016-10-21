@@ -32,7 +32,7 @@ function varargout = kineGUI(varargin)
 
 % Edit the above text to modify the response to help kineGUI
 
-% Last Modified by GUIDE v2.5 18-Dec-2013 16:11:26
+% Last Modified by GUIDE v2.5 19-Oct-2016 13:55:03
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -81,6 +81,8 @@ set(handles.absAngRefPosRadio,'Value',handles.kine.absAngRefPos.Value);
 set(handles.absAngRefPosFileEdit,'String',handles.kine.absAngRefPosFile.String);
 set(handles.absAngRefLabRadio,'Value',handles.kine.absAngRefLab.Value);
 set(handles.G_T_LABEdit,'String',mat2str(handles.kine.G_T_LAB.Value));
+set(handles.absAngRefThisRadio,'Value',handles.kine.absAngRefThis.Value);
+set(handles.absAngRefThisTimeEdit,'String',handles.kine.absAngRefThisTime.String);
 % Set commond data to be returned back
 l = handles.kine.bodyModel.String;
 i = handles.kine.bodyModel.Value;
@@ -395,6 +397,8 @@ handles.kine.wantedJoints.Value = get(handles.wantedJointsList,'Value');
 handles.kine.absAngRefPos.Value = get(handles.absAngRefPosRadio,'Value');
 handles.kine.absAngRefPosFile.String = get(handles.absAngRefPosFileEdit,'String');
 handles.kine.absAngRefLab.Value = get(handles.absAngRefLabRadio,'Value');
+handles.kine.absAngRefThis.Value = get(handles.absAngRefThisRadio,'Value');
+handles.kine.absAngRefThisTime.String = get(handles.absAngRefThisTimeEdit,'String');
 handles.kine.G_T_LAB.Value = eval(get(handles.G_T_LABEdit,'String'));
 guidata(hObject, handles);
 uiresume;
@@ -447,3 +451,43 @@ function G_T_LABEdit_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+
+function absAngRefThisTimeEdit_Callback(hObject, eventdata, handles)
+% hObject    handle to absAngRefThisTimeEdit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of absAngRefThisTimeEdit as text
+%        str2double(get(hObject,'String')) returns contents of absAngRefThisTimeEdit as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function absAngRefThisTimeEdit_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to absAngRefThisTimeEdit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes when selected object is changed in uipanel1.
+function uipanel1_SelectionChangeFcn(hObject, eventdata, handles)
+% hObject    handle to the selected object in uipanel1 
+% eventdata  structure with the following fields (see UIBUTTONGROUP)
+%	EventName: string 'SelectionChanged' (read only)
+%	OldValue: handle of the previously selected object or empty if none was selected
+%	NewValue: handle of the currently selected object
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes when uipanel1 is resized.
+function uipanel1_ResizeFcn(hObject, eventdata, handles)
+% hObject    handle to uipanel1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

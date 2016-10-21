@@ -8,7 +8,7 @@
 % GNU General Public License for more details.
 %
 
-function angles = GetRelevantAngles(iJointsAbs, absAngRefPos)
+function angles = GetRelevantAngles(iJointsAbs, absAngRef)
 
 % Set global variables
 BodyMechFuncHeader;
@@ -26,7 +26,7 @@ for i = 1 : length(BODY.JOINT)
         name = BODY.JOINT(i).PostureRefKinematics.AngleNames{j};
         if ~isempty(name)
             if toUseAbs == 1    % the angles of the current joint are actually absolute to ref posture or lab ref frame
-                if absAngRefPos == 0 
+                if absAngRef == 0 
                     % Fictitious anatomy based -> lab reference frame based
                     angles.(name) = BODY.JOINT(i).AnatomyRefKinematics.AnglesMult(j) * BODY.JOINT(i).AnatomyRefKinematics.RotationAngles(j,:)';
                 else

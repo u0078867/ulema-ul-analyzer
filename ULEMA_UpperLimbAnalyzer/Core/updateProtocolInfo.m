@@ -64,6 +64,8 @@ handles.kine.MHAList = handles.protDB.protList(n).MHAList;
 handles.kine.wantedJoints.String = handles.allJoints;
 handles.kine.wantedJoints.Value = getListInd(handles.protDB.protList(n).wantedJoints, handles.kine.wantedJoints.String);
 handles.kine.G_T_LAB.Value = handles.protDB.protList(n).G_T_LAB;
+handles.kine.absAngRefThis.Value = handles.protDB.protList(n).absAngRefThis;
+handles.kine.absAngRefThisTime.String = num2str(handles.protDB.protList(n).absAngRefThisTime);
 % Segmentation
 handles.seg.segMethod.Value = handles.protDB.protList(n).segMethod;
 selectedMethod = handles.seg.segMethod.Value;

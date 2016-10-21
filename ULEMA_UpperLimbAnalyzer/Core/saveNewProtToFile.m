@@ -41,6 +41,8 @@ handles.protDB.protList(n).absAngRefPos = handles.kine.absAngRefPos.Value;
 handles.protDB.protList(n).absAngRefPosFile = handles.kine.absAngRefPosFile.String;
 handles.protDB.protList(n).absAngRefLab = handles.kine.absAngRefLab.Value;
 handles.protDB.protList(n).G_T_LAB = handles.kine.G_T_LAB.Value;
+handles.protDB.protList(n).absAngRefThis = handles.kine.absAngRefThis.Value;
+handles.protDB.protList(n).absAngRefThisTime = str2double(handles.kine.absAngRefThisTime.String);
 % Segmentation
 handles.protDB.protList(n).segMethod = handles.seg.segMethod.Value;
 handles.protDB.protList(n).anglesMinMaxEv = handles.seg.anglesMinMaxEv.Value;

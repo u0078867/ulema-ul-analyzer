@@ -35,7 +35,10 @@ handles.kine.pointer.String = getFilesInFolder(handles.pointersFolder, 'm');
 handles.kine.pointer.Value = 1;
 handles.kine.absAngRefPos.Value = 1;
 handles.kine.absAngRefPosFile.String = 'Static.c3d';
+handles.kine.absAngRefLab.Value = 0;
 handles.kine.G_T_LAB.String = eye(4);
+handles.kine.absAngRefThis.Value = 0;
+handles.kine.absAngRefThisTime.String = '5';
 % Segmentation
 handles.seg.segMethod.Value = 1;
 handles.seg.timing.Value = 1;

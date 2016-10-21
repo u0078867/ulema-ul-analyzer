@@ -8,7 +8,7 @@
 % GNU General Public License for more details.
 %
 
-function PostureFrameIndex = RecordReferencePose_AUTO(ReferencePoseNo, mode)
+function PostureFrameIndex = RecordReferencePose_AUTO(ReferencePoseNo, mode, varargin)
 % RECORDREFERENCEPOSE [ BodyMech 3.06.01 ]: interactive selection from recoderded marker kinematics
 % INPUT
 %   Global: BODY.SEGMENT(iSegment).Cluster-fields
@@ -93,6 +93,10 @@ elseif strcmp(mode,'automatic')
 
     PostureFrameIndex=max(1,Index);
     
+elseif strcmp(mode,'manual')
+    
+    PostureFrameIndex = varargin{1};
+    
 end
 
 % PROCESS
@@ -106,7 +110,8 @@ for iSegment=1:length(BODY.SEGMENT), % for each segment
         NmarkersCluster=size(BODY.SEGMENT(iSegment).Cluster.MarkerCoordinates,2);
 
         % pose of segment clustermarkers in this reference  position
-        ReferencePosition=BODY.SEGMENT(iSegment).Cluster.KinematicsMarkers(:,:,PostureFrameIndex); % in the LabRefFrame
+        %ReferencePosition=BODY.SEGMENT(iSegment).Cluster.KinematicsMarkers(:,:,PostureFrameIndex); % in the LabRefFrame
+        ReferencePosition=mean(BODY.SEGMENT(iSegment).Cluster.KinematicsMarkers(:,:,PostureFrameIndex), 3); % in the LabRefFrame
         ValidClusterMarkers= ~isnan(ReferencePosition(X,:));      % X-coordinate represents 3 dimensions
 
         if  sum(ValidClusterMarkers)>=3,

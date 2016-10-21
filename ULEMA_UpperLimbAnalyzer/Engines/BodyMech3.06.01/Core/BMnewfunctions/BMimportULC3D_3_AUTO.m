@@ -91,7 +91,8 @@ if datafile ~= 0
                 j = j(2);
             end
         elseif length(j) > 2
-            error('the marker %s appears with different model name prefixes!', MyLabelSequence{i});
+            %error('the marker %s appears with different model name prefixes!', MyLabelSequence{i});
+            j = j(1);   % just take the first one, supposing they are all have the same content
         end
         if sum(j) ~= 0
 %             MyLabelSequence{i}

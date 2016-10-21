@@ -138,6 +138,20 @@ switch section
         if test == 0
             somethingChanged = true;
             fprintf('\n\nG_T_LAB changed\n\n');
+        end
+        % absAngRefThis
+        ind = strcmp(d(:,1),'absAngRefThis');
+        test = feval(d{ind,3}, handles.kine.absAngRefThis.Value, handles.protDB.protList(n).absAngRefThis);
+        if test == 0
+            somethingChanged = true;
+            fprintf('\n\nabsAngRefThis changed\n\n');
+        end
+        % absAngRefThisTime
+        ind = strcmp(d(:,1),'absAngRefThisTime');
+        test = feval(d{ind,3}, str2double(handles.kine.absAngRefThisTime.String), handles.protDB.protList(n).absAngRefThisTime);
+        if test == 0
+            somethingChanged = true;
+            fprintf('\n\nabsAngRefThisTime changed\n\n');
         end 
         
     case 'seg'

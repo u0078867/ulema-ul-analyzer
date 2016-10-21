@@ -340,6 +340,13 @@ for i = 1 : length(trToUseDB.subjects)  % cycle for every subject
                 InterpolateMarkerKinematics_ADV('Cubic');
                 sto = toc(sta);
                 fprintf('\n     Tr: Marker gaps filled (%s sec)... ', num2str(sto));
+                % Trial: calculate reference posture based on same trial, if necessary
+                if protInfo.absAngRefThis == 1
+                    sta = tic;
+                    RecordReferencePose_AUTO(1, 'manual', [1:protInfo.absAngRefThisTime]);
+                    sto = toc(sta);
+                    fprintf('\n     Tr: Reference posture calculated in indicated frames range (%s sec) ...', num2str(sto));
+                end
                 % Trial: calculate trasformation matrix of each cluster of markers
                 sta = tic;
                 CalculateClusterKinematics_NO_WB_OPT2(1:length(BODY.SEGMENT));
@@ -370,22 +377,25 @@ for i = 1 : length(trToUseDB.subjects)  % cycle for every subject
                     G_T_LAB = eye(4);
                 end
                 CalculateJointKinematics_OPT3_ADV('AnatomyBased', [], G_T_LAB);
+                sto = toc(sta);
+                fprintf('\n     Tr: Joint kinematics (anatomy based) calculated  (%s sec)...', num2str(sto));
                 iJointsAbs = [];
-                if protInfo.absAngRefPos == 1
+                if protInfo.absAngRefPos == 1 || protInfo.absAngRefThis == 1
                     proxSegNames = {BODY.JOINT.ProximalSegmentName};
                     ind = strcmp(proxSegNames, 'Global');
                     iJointsAbs = find(ind); % indeces of the joints in which the proximal segment was indicated as 'Global'
                     if ~isempty(iJointsAbs)
+                        sta = tic;
                         CalculateJointKinematics_OPT3_ADV('ReferenceBased', iJointsAbs, G_T_LAB);
+                        sto = toc(sta);
+                        fprintf('\n     Tr: Joint kinematics (reference based) calculated  (%s sec)...', num2str(sto));                       
                     end
                 end
-                sto = toc(sta);
-                fprintf('\n     Tr: Joint kinematics calculated  (%s sec)...', num2str(sto));
                 % Trial: correct for gimbal lock, if necessary
                 CorrectAnglesForGimbalLock();
                 fprintf('\n     Tr: Gimbal lock correction performed ...');
                 % Trial: Get relevant angles
-                subject.sessions(j).trials(k).data.angles = GetRelevantAngles(iJointsAbs, protInfo.absAngRefPos);
+                subject.sessions(j).trials(k).data.angles = GetRelevantAngles(iJointsAbs, protInfo.absAngRefPos | protInfo.absAngRefThis);
                 fprintf('\n     Tr: Wanted angles aggregated ...');
                 % Trial: Aggregate points data (add anatomical points)
                 subject.sessions(j).trials(k).data.points = AggregateAllPoints(subject.sessions(j).trials(k).data.points, 'AnatomicalLandmarks');
