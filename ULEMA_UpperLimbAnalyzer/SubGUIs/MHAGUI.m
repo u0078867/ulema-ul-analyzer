@@ -73,13 +73,16 @@ set(handles.MHATable,'Data',MHAList);
 set(handles.MHATable,'ColumnEditable',[true, true, true, true, true]);
 
 % Choose default command line output for MHAGUI
-handles.output = hObject;
+handles.output = MHAList;
 
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes MHAGUI wait for user response (see UIRESUME)
-uiwait;
+% Make the GUI modal
+set(handles.figure1,'WindowStyle','modal')
+
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -91,10 +94,13 @@ function varargout = MHAGUI_OutputFcn(hObject, eventdata, handles)
 
 if ~isempty(handles)
     close(hObject);
-    varargout{1} = handles.out;
+    varargout{1} = handles.output;
 else
     varargout{1} = [];
 end    
+
+% The figure can be deleted now
+delete(handles.figure1);
 
 
 % --- Executes on button press in closeWinButt.
@@ -103,9 +109,9 @@ function closeWinButt_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-handles.out = get(handles.MHATable,'Data');
+handles.output = get(handles.MHATable,'Data');
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.figure1);
 
 
 % --- Executes when user attempts to close figure1.
@@ -114,5 +120,10 @@ function figure1_CloseRequestFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: delete(hObject) closes the figure
-delete(hObject);
+if isequal(get(hObject, 'waitstatus'), 'waiting')
+    % The GUI is still in UIWAIT, us UIRESUME
+    uiresume(hObject);
+else
+    % The GUI is no longer waiting, just close it
+    delete(hObject);
+end

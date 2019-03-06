@@ -89,7 +89,7 @@ if sectionsToComp.rawDataRead
                         if ~isempty(eventTime)
                             eventTime = eventTime(2,:);
                         else
-                            eventTime = {};
+                            eventTime = [];
                         end
                         kineFreq = getparam(ParameterGroup, 'POINT', 'RATE');
                         startFrame = getparam(ParameterGroup, 'TRIAL', 'ACTUAL_START_FIELD');

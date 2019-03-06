@@ -90,8 +90,11 @@ end
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes cliParsGUI wait for user response (see UIRESUME)
-uiwait;
+% Make the GUI modal
+set(handles.cliParsGUI,'WindowStyle','modal')
+
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+uiwait(handles.cliParsGUI);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -107,6 +110,9 @@ if ~isempty(handles)
 else
     varargout{1} = [];
 end 
+
+% The figure can be deleted now
+delete(handles.cliParsGUI);
 
 
 % --- Executes on button press in refFileButt.
@@ -221,7 +227,7 @@ function closeWinButt_Callback(hObject, eventdata, handles)
 
 handles.cliPars.subMatch.Data = get(handles.subMatchTable,'Data');
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.cliParsGUI);
 
 
 % --- Executes when user attempts to close cliParsGUI.
@@ -230,5 +236,10 @@ function cliParsGUI_CloseRequestFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: delete(hObject) closes the figure
-delete(hObject);
+if isequal(get(hObject, 'waitstatus'), 'waiting')
+    % The GUI is still in UIWAIT, us UIRESUME
+    uiresume(hObject);
+else
+    % The GUI is no longer waiting, just close it
+    delete(hObject);
+end

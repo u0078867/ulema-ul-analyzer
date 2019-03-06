@@ -63,21 +63,32 @@ function TaskTableFiller_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to TaskTableFiller (see VARARGIN)
 
 % Get input lists
+out = struct();
+out.phaseUsed = [];
+out.contextUsed = [];
+out.tasksUsed = [];
+out.anglesUsed = [];
 set(handles.phasePopup, 'String', varargin{1});
 set(handles.contextPopup, 'String', varargin{2});
 set(handles.angleList, 'String', varargin{3});
 if ~isempty(varargin{4})
     set(handles.taskList, 'String', varargin{4});
+    out.taskList = varargin{4};
+else
+    out.taskList = {};
 end
 
 % Choose default command line output for TaskTableFiller
-handles.output = hObject;
+handles.out = out;
 
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes TaskTableFiller wait for user response (see UIRESUME)
-uiwait;
+% Make the GUI modal
+set(handles.figure1,'WindowStyle','modal')
+
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -95,13 +106,16 @@ if ~isempty(handles)
     varargout{4} = handles.out.anglesUsed;
     varargout{5} = handles.out.taskList;
 else
-        varargout{1} = handles.out.phaseUsed;
+    varargout{1} = handles.out.phaseUsed;
     varargout{2} = handles.out.contextUsed;
     varargout{3} = handles.out.tasksUsed;
     varargout{4} = handles.out.anglesUsed;
     varargout{5} = handles.out.taskList;
 end
 close(handles.figure1);
+
+% The figure can be deleted now
+delete(handles.figure1);
 
 
 % --- Executes on selection change in angleList.
@@ -220,7 +234,7 @@ end
 handles.out.anglesUsed = s(l);
 handles.out.taskList = get(handles.taskList,'String');
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.figure1);
 
 
 % --- Executes on button press in cancButt.
@@ -235,7 +249,7 @@ handles.out.tasksUsed = [];
 handles.out.anglesUsed = [];
 handles.out.taskList = get(handles.taskList,'String'); 
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.figure1);
 
 
 % --- Executes on selection change in taskList.
@@ -267,4 +281,11 @@ function figure1_CloseRequestFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-delete(hObject);
+if isequal(get(hObject, 'waitstatus'), 'waiting')
+    % The GUI is still in UIWAIT, us UIRESUME
+    uiresume(hObject);
+else
+    % The GUI is no longer waiting, just close it
+    delete(hObject);
+end
+

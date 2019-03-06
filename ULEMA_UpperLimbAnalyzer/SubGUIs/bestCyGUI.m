@@ -83,8 +83,11 @@ handles.taskListCache = {};
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes bestCyGUI wait for user response (see UIRESUME)
-uiwait;
+% Make the GUI modal
+set(handles.bestCyGUI,'WindowStyle','modal')
+
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+uiwait(handles.bestCyGUI);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -101,6 +104,8 @@ else
     varargout{1} = [];
 end 
 
+% The figure can be deleted now
+delete(handles.bestCyGUI);
 
 
 function bestCyclesNEdit_Callback(hObject, eventdata, handles)
@@ -164,7 +169,7 @@ function closeWinButt_Callback(hObject, eventdata, handles)
 handles.bestCy.bestCyclesN.String = get(handles.bestCyclesNEdit,'String');
 handles.bestCy.taskPrefix.Data = get(handles.taskPrefixTable,'Data');
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.bestCyGUI);
 
 % --- Executes on button press in closeSaveButt.
 function closeSaveButt_Callback(hObject, eventdata, handles)
@@ -212,8 +217,13 @@ function bestCyGUI_CloseRequestFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: delete(hObject) closes the figure
-delete(hObject);
+if isequal(get(hObject, 'waitstatus'), 'waiting')
+    % The GUI is still in UIWAIT, us UIRESUME
+    uiresume(hObject);
+else
+    % The GUI is no longer waiting, just close it
+    delete(hObject);
+end
 
 
 % --- Executes on key press with focus on taskPrefixTable and none of its controls.

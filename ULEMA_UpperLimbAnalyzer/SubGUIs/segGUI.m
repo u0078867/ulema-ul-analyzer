@@ -100,13 +100,16 @@ set(handles.stParPointsTable,'ColumnFormat',{[' ',handles.allMarkers],phaseList}
 set(handles.stParPointsTable,'Data',handles.seg.stParPoints.Data,'RowName',[]);
 set(handles.stParPointsTable,'ColumnEditable',[true, true]);
 % Choose default command line output for segGUI
-handles.output = hObject;
+handles.output = handles.seg;
 
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes segGUI wait for user response (see UIRESUME)
-uiwait;
+% Make the GUI modal
+set(handles.segGUI,'WindowStyle','modal')
+
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+uiwait(handles.segGUI);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -122,6 +125,9 @@ if ~isempty(handles)
 else
     varargout{1} = [];
 end 
+
+% The figure can be deleted now
+delete(handles.segGUI);
 
 
 % --- Executes on selection change in segMethodsList.
@@ -236,7 +242,7 @@ handles.seg.trajectory.Value = get(handles.trajectoryCheck,'Value');
 handles.seg.jerk.Value = get(handles.jerkCheck,'Value');
 handles.seg.stParPoints.Data = get(handles.stParPointsTable,'Data');
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.segGUI);
 
 % --- Executes when user attempts to close segGUI.
 function segGUI_CloseRequestFcn(hObject, eventdata, handles)
@@ -244,5 +250,10 @@ function segGUI_CloseRequestFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: delete(hObject) closes the figure
-delete(hObject);
+if isequal(get(hObject, 'waitstatus'), 'waiting')
+    % The GUI is still in UIWAIT, us UIRESUME
+    uiresume(hObject);
+else
+    % The GUI is no longer waiting, just close it
+    delete(hObject);
+end

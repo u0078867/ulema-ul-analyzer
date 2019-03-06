@@ -97,8 +97,11 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes kineGUI wait for user response (see UIRESUME)
-uiwait;
+% Make the GUI modal
+set(handles.kineGUI,'WindowStyle','modal')
+
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+uiwait(handles.kineGUI);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -118,6 +121,9 @@ else
     varargout{2} = [];
     varargout{3} = [];
 end 
+
+% The figure can be deleted now
+delete(handles.kineGUI);
 
 
 % --- Executes on selection change in bodyModelPopup.
@@ -371,8 +377,13 @@ function kineGUI_CloseRequestFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: delete(hObject) closes the figure
-delete(hObject);
+if isequal(get(hObject, 'waitstatus'), 'waiting')
+    % The GUI is still in UIWAIT, us UIRESUME
+    uiresume(hObject);
+else
+    % The GUI is no longer waiting, just close it
+    delete(hObject);
+end
 
 
 % --- Executes on button press in closeWinButt.
@@ -401,7 +412,7 @@ handles.kine.absAngRefThis.Value = get(handles.absAngRefThisRadio,'Value');
 handles.kine.absAngRefThisTime.String = get(handles.absAngRefThisTimeEdit,'String');
 handles.kine.G_T_LAB.Value = eval(get(handles.G_T_LABEdit,'String'));
 guidata(hObject, handles);
-uiresume;
+uiresume(handles.kineGUI);
 
 
 

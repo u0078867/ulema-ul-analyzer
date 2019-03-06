@@ -13,18 +13,18 @@ With U.L.E.M.A. you can:
 - Calculate clinically-relevant parameters such as Arm Value Score (AVS) and Arm Profile Score (APS);
 - Add calibrated anatomical landmarks, kinematics and spatio-temporal parameters data back to the original C3D for [Polygon](http://www.vicon.com/Software/Polygon) reports;
 - Export data in different formats (MAT, CSV, PDF, XML);
-- Create reference data MAT files from processed data; 
+- Create reference data MAT files from processed data;
 - Save processed data MAT files for further late (re)processing;
 - Create / edit / delete different sets of processing options (procotols);
 
 It is bundled with the "Report Generator", a stand-alone Python-based and plugin-enabled GUI application for transforming custom-made templates into (editable) reports.
 
 The software was developed by the Catholic University of Leuven (Belgium) through a collaboration between the following groups:
-- [CMAL-P](http://www.uzleuven.be/en/laboratory-for-clinical-movementanalysis/research) (Clinical Movement Analysis Laboratory, UZ Pellenberg) 
+- [CMAL-P](http://www.uzleuven.be/en/laboratory-for-clinical-movementanalysis/research) (Clinical Movement Analysis Laboratory, UZ Pellenberg)
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.1.9**.
+The most recent version of U.L.E.M.A. is **1.2.0**.
 
 The most recent version of Report Generator is **1.1**.
 
@@ -41,7 +41,7 @@ The most recent version of Report Generator is **1.1**.
 ---
 **Documentation:**
 
-Both U.L.E.M.A and Report Generator are documented with manuals and additional useful information. These documents can be found inside the folder *Doc* of each application. 
+Both U.L.E.M.A and Report Generator are documented with manuals and additional useful information. These documents can be found inside the folder *Doc* of each application.
 
 ---
 
@@ -55,7 +55,7 @@ Other relevant articles:
 
 1. **Jaspers, E.**, Feys, H., Bruyninckx, H., Harlaar, J., Molenaers, G., Desloovere, K. **Upper limb kinematics: Development and reliability of a clinical protocol for children.** Gait Posture 2011; 33(2): 279-285 (citations : 8) (IF most recent : 1.969).
 
-2. **Jaspers, E.**, Desloovere, K., Bruyninckx, H., Klingels, K., Molenaers, G., Aertbeliën, E., Van Gestel, L., Feys, H. **Three-dimensional upper limb movement characteristics in children with hemiplegic cerebral palsy and typically developing children**. Res Dev Disabil 2011; 32(6): 2283-2294 (citations : 3) (IF most recent : 2.483). 
+2. **Jaspers, E.**, Desloovere, K., Bruyninckx, H., Klingels, K., Molenaers, G., Aertbeliën, E., Van Gestel, L., Feys, H. **Three-dimensional upper limb movement characteristics in children with hemiplegic cerebral palsy and typically developing children**. Res Dev Disabil 2011; 32(6): 2283-2294 (citations : 3) (IF most recent : 2.483).
 
 3. **Jaspers, E.**, Feys, H., Bruyninckx, H., Molenaers, G., Klingels, K., Desloovere, K. **Review of quantitative measurements of upper limb movements in hemiplegic cerebral palsy**. Gait Posture 2009; 30(4): 395-404 (citations : 17) (IF most recent : 1.969).
 
@@ -68,7 +68,7 @@ This application builds upon following tools (already embedded in the applicatio
 3. [XML Toolbox for MATLAB](http://www.mathworks.com/matlabcentral/fileexchange/4278-xml-toolbox)
 4. Useful functions provided by Prof. Dr. Alberto Leardini ([IOR](http://www.ior.it/en/laboratori/lab-analisi-movimento/movement-analysis-laboratory)) and Dr. Andrea G. Cutti ([INAIL](http://www.inail-ricerca.it/))
 
-We would like acknowledge the authors of these tools here! 
+We would like acknowledge the authors of these tools here!
 
 ---
 
@@ -77,25 +77,16 @@ We would like acknowledge the authors of these tools here!
 - create a new issue by clicking on Issues --> New Issue
 - avoid any direct mail to the contributors, so that all the knowledge can be shared
 
----
-
-**What's next**
-
-U.L.E.M.A.:
-
-1.1.10
-- To decide
-
-Report generator:
-
-1.2:
-- Add coordination plots for reports
 
 ---
 
 **What's new**
 
 U.L.E.M.A.:
+
+1.2.0 (06/03/2018):
+- Switched to semantic versioning
+- Solved issue #32 (MATLAB 2018 sub-GUIs issues)
 
 1.1.9 (20/10/2016):
 - Updated with issue #28 (wrong offset added to absolute angles when chair position in a task is different from static refence position file)
@@ -131,7 +122,7 @@ U.L.E.M.A.:
 
 1.1.1 (31/01/2014):
 - Solved issue #11 (Geometrical GH estimation)
-- Fixed bug happening during exportation to C3D and when no marker related spatio-temporal parameters were calculated 
+- Fixed bug happening during exportation to C3D and when no marker related spatio-temporal parameters were calculated
 
 1.1.0 (13/01/2014):
 - Possibility to read a single calibration file where markers are placed directly on anatomical landmarks
@@ -148,7 +139,7 @@ U.L.E.M.A.:
 - Added developers guide
 
 1.0.6 (14/06/2013):
-- Raw data reading, previously part of the kinematics process, is now provided in a separate section. 
+- Raw data reading, previously part of the kinematics process, is now provided in a separate section.
 - Documentation updated  
 
 1.0.5 (03/05/2013):
@@ -167,7 +158,7 @@ U.L.E.M.A.:
 - Added automatic gimbal-lock correction for joint angles
 - timeVmax is in % of the phase duration and not in seconds anymore
 - protocols Left, Right, Right_Pellenberg, Left_Pellenberg, Right_NoGH_Pellenberg, Left_NoGH_Pellenberg
-  edited to follow planned protocol at UZ Pellenberg 
+  edited to follow planned protocol at UZ Pellenberg
 
 1.0.2 (04/03/2013):
 - Corrected measurement unit for trajectory index when exporting to C3D
@@ -191,11 +182,10 @@ U.L.E.M.A.:
 
 Report generator:
 
-1.1 (05/10/2012): 
+1.1 (05/10/2012):
 - Added "Descriptors Editor" tool under main window -> "Tools" -> "Descriptors Editor..."
 - The software is now plugin based (where UL is the only puglin available now); this makes the
   software ideally customizable for every other purpose
 
 1.0 (24/09/2012):
 - First release
-
