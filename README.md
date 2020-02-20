@@ -24,19 +24,19 @@ The software was developed by the Catholic University of Leuven (Belgium) throug
 - [PMA](http://www.mech.kuleuven.be/en/pma/) (Division of Production engineering, Machine design and Automation)
 - [FaBeR](http://www.kuleuven.be/english) (Faculty of Kinesiology and Rehabilitation Sciences)
 
-The most recent version of U.L.E.M.A. is **1.2.0**.
+The most recent version of U.L.E.M.A. is **1.2.1**.
 
 The most recent version of Report Generator is **1.1**.
 
 ---
 
 **Requirements** for U.L.E.M.A.:
-+ Windows XP / 7 (Linux / MacOSX are not yet supported)
++ Windows XP / 7 / 10 (Linux / MacOSX are not yet supported)
 + [MATLAB](http://www.mathworks.nl/products/matlab/) (U.L.E.M.A. developed with **R2010a** and tested with **R2010a or newer**)
 + [Signal Processing Toolbox](http://www.mathworks.nl/products/signal/) for MATLAB
 
 **Requirements** for Report Generator:
-+ Windows XP / Vista / 7
++ Windows XP / Vista / 7 / 10
 
 ---
 **Documentation:**
@@ -83,6 +83,9 @@ We would like acknowledge the authors of these tools here!
 **What's new**
 
 U.L.E.M.A.:
+
+1.2.1 (20/02/2020):
+- Solved issue #33 (Kinematics sub-GUI too high in Windows 10)
 
 1.2.0 (06/03/2018):
 - Switched to semantic versioning
