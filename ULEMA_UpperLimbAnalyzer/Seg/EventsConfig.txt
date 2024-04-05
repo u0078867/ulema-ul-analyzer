@@ -96,4 +96,20 @@ p.fieldsToShift={};
 p.fieldsColToShift=[];
 [\Method]
 
+[Method]
+p.method=7;
+p.type='manual';
+p.segName='Cycle is defined by a start event, GE1, and a final event, GE2.';
+p.evStart='GE1';
+p.evStartPlotName='STA';
+p.evSync={};
+p.evSyncPlotName={};
+p.evSyncTimePerc=[];
+p.evStop='GE2';
+p.evStopPlotName='STO';
+p.evForOffset='';
+p.fieldsToShift={};
+p.fieldsColToShift=[];
+[\Method]
+
 [\Segmentation]
